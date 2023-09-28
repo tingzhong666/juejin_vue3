@@ -56,7 +56,7 @@ const inspiration = reactive([
           <div class="creator">
             <el-button type="primary" color="#1e80ff" class="link">创作者中心</el-button>
             <el-popover
-              placement="top-start"
+              placement="bottom-end"
               :width="330"
               trigger="hover"
               :hide-after="0"
@@ -185,18 +185,94 @@ const inspiration = reactive([
           <!-- 登录显示 -->
           <div class="user" v-if="store.isLogin">
             <el-popover
-              placement="bottom"
-              :width="200"
+              placement="bottom-end"
+              :width="250"
               trigger="click"
               transition="none"
               :hide-after="0"
             >
               <template #reference>
-                <img src="@/assets/toux.jpg">
+                <img :src="store.userinfo.avatar">
               </template>
               <template #default>
                 <div class="user_float">
-                  123
+                  <div class="one">
+                    <el-row :gutter="20">
+                      <el-col :span="6" class="avatar">
+                        <el-avatar :src="store.userinfo.avatar"></el-avatar>
+                      </el-col>
+                      <el-col :span="18">
+                        <div class="name">{{ store.userinfo.name }}</div>
+                        <div class="ore">矿石：{{ store.userinfo.ore }}<el-icon class="icon"><ArrowRight /></el-icon></div>
+                      </el-col>
+                    </el-row>
+                  </div>
+                  <div class="two">
+                    <div class="level">掘友等级 JY.{{ store.userinfo.level }}</div>
+                    <div class="exprience">{{ store.userinfo.exprience }}/{{ store.userinfo.all_exprience }}</div>
+                    <div class="exprience_line">
+                      <el-progress
+                        :percentage="store.userinfo.exprience / store.userinfo.all_exprience *100"
+                        :show-text="false"
+                      />
+                    </div>
+                  </div>
+                  <div class="three">
+                    <el-row>
+                      <el-col :span="8" class="item">
+                        <div>{{ store.userinfo.follow }}</div>
+                        <div>关注</div>
+                      </el-col>
+                      <el-col :span="8" class="item">
+                        <div>{{ store.userinfo.star }}</div>
+                        <div>赞过</div>
+                      </el-col>
+                      <el-col :span="8" class="item">
+                        <div>{{ store.userinfo.collect }}</div>
+                        <div>收藏</div>
+                      </el-col>
+                    </el-row>
+                  </div>
+                  <div class="four">
+                    <el-row>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><UserFilled /></el-icon>
+                        <span>我的主页</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Present /></el-icon>
+                        <span>成长福利</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><EditPen /></el-icon>
+                        <span>闪念笔记</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Memo /></el-icon>
+                        <span>会员中心</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Reading /></el-icon>
+                        <span>课程中心</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Ticket /></el-icon>
+                        <span>我的优惠</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Flag /></el-icon>
+                        <span>我的报名</span>
+                      </el-col>
+                      <el-col :span="12" class="item">
+                        <el-icon class="icon" :size="20"><Connection /></el-icon>
+                        <span>我的足迹</span>
+                      </el-col>
+                    </el-row>
+                  </div>
+                  <div class="five">
+                    <el-link class="item">我的设置</el-link>
+                    <el-link class="item">退出登录</el-link>
+                  </div>
                 </div>
               </template>
             </el-popover>
@@ -362,18 +438,6 @@ const inspiration = reactive([
   color: var(--el-link-text-color);
 }
 
-.login .el-button:focus, .el-button:hover{
-  --el-button-hover-text-color: var(--el-button-text-color);
-  --el-button-hover-bg-color: var(--el-button-bg-color);
-  --el-button-hover-border-color: var(--el-button-border-color);
-}
-
-.login .el-button:active{
-  --el-button-active-text-color: var(--el-button-text-color);
-  --el-button-active-bg-color: var(--el-button-bg-color);
-  --el-button-active-border-color: var(--el-button-border-color);
-}
-
 /* 消息 */
 .msg{
   cursor: pointer;
@@ -386,6 +450,7 @@ const inspiration = reactive([
 .msg .icon:hover{
   color: #252933;
 }
+
 /* 消息浮窗 */
 .msg_float .item{
   line-height: 40px;
@@ -395,12 +460,17 @@ const inspiration = reactive([
 .msg_float .item:hover{
   background-color: var(--el-color-info-light-9);
 }
+/* 登录注册按钮 */
+.login .el-button:focus, .el-button:hover{
+  --el-button-hover-text-color: var(--el-button-text-color);
+  --el-button-hover-bg-color: var(--el-button-bg-color);
+  --el-button-hover-border-color: var(--el-button-border-color);
+}
 
-.user img{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
+.login .el-button:active{
+  --el-button-active-text-color: var(--el-button-text-color);
+  --el-button-active-bg-color: var(--el-button-bg-color);
+  --el-button-active-border-color: var(--el-button-border-color);
 }
 
 
@@ -439,4 +509,100 @@ const inspiration = reactive([
   background-color: var(--el-button-bg-color);
 }
 
+/* 头像 */
+.user img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 用户浮窗 */
+.user_float .avatar{
+  text-align: center;
+}
+.user_float .name{
+  cursor: pointer;
+}
+.user_float .ore{
+  font-size: var(--el-font-size-extra-small);
+  margin-top: 6px;
+  cursor: pointer;
+}
+.user_float .ore .icon{
+  position: relative;
+  top: 1.5px;
+  right: -3px;
+}
+
+.user_float .two{
+  background: linear-gradient(var(--el-color-primary-light-8), var(--el-color-primary-light-9));
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.user_float .two .level{
+  font-size: var(--el-font-size-extra-small);
+  color: var(--el-color-primary);
+}
+.user_float .two .exprience{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: var(--el-font-size-extra-small);
+  color: var(--el-color-primary);
+}
+
+.user_float .two .exprience_line{
+  margin-top: 10px;
+}
+.user_float .three {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.user_float .three .item{
+  cursor: pointer;
+  color: var(--el-text-color-primary);
+}
+.user_float .three .item div:last-child{
+  font-size: var(--el-font-size-extra-small);
+}
+.user_float .four {
+  margin-top: 10px;
+}
+.user_float .four .item{
+  padding: 5px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.user_float .four .item:hover{
+  background-color: var(--el-color-info-light-9);
+}
+.user_float .four .item .icon{
+  position: relative;
+  top: 4px;
+}
+.user_float .four .item span{
+  margin-left: 10px;
+}
+
+.user_float .five{
+  position: relative;
+}
+.user_float .five .item{
+  font-size: var(--el-font-size-extra-small);
+}
+.user_float .five .item:hover:after{
+  border: 0;
+}
+.user_float .five .item:last-child{
+  position: absolute;
+  right: 10px;
+}
 </style>
