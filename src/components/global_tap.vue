@@ -1,6 +1,6 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter.js'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 const store = useCounterStore()
 
 const inspiration = reactive([
@@ -8,6 +8,7 @@ const inspiration = reactive([
   '中秋创意投稿大赛',
   '苹果发布会 2023'
 ])
+const search_input = ref('')
 </script>
 
 <template>
@@ -22,7 +23,6 @@ const inspiration = reactive([
           <el-menu
             default-active="1"
             mode="horizontal"
-            @select="handleSelect"
             :router="true"
           >
             <el-menu-item index="1">首页</el-menu-item>
@@ -43,7 +43,7 @@ const inspiration = reactive([
           <!-- 搜索 -->
           <div class="search">
             <el-input
-              v-model="input3"
+              v-model="search_input"
               placeholder="探索稀土掘金"
             >
               <template #append>

@@ -5,8 +5,8 @@ import global_tap from '@/components/global_tap.vue'
 <template>
   <div class="app">
     <global_tap/>
-
-    <RouterView />
+    
+    <RouterView :key="$route.fullPath"/>
   </div>
 </template>
 
