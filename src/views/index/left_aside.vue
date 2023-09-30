@@ -1,28 +1,32 @@
 <script setup>
-import { reactive } from "vue"
+import { reactive, defineProps } from "vue"
 import { useRoute } from "vue-router";
 
+const props = defineProps(['category'])
+const emit = defineEmits(['update:category'])
+
+const path_current = useRoute().path == '/' ? '/recommended' : useRoute().path
 const list = reactive([
-  { text: '关注', path: '/following', icon: 'icon-heyue' },
-  { text: '综合', path: '/recommended', icon: 'icon-compass-full' },
-  { text: '后端', path: '/backend', icon: 'icon-data' },
-  { text: '前端', path: '/frontend', icon: 'icon-developer-fill' },
-  { text: 'Android', path: '/android', icon: 'icon-android' },
-  { text: 'IOS', path: '/ios', icon: 'icon-iOS' },
-  { text: '人工智能', path: '/ai', icon: 'icon-fenxichaxun' },
-  { text: '开发工具', path: '/freebie', icon: 'icon-banshou_Line' },
-  { text: '代码人生', path: '/career', icon: 'icon-wendangguanli-xiangmuleiwendang' },
-  { text: '阅读', path: '/article', icon: 'icon--books' },
+  { text: '关注', categoty: 'following', path: '/following', icon: 'icon-heyue' },
+  { text: '综合', categoty: 'recommended', path: '/recommended', icon: 'icon-compass-full' },
+  { text: '后端', categoty: 'backend', path: '/backend', icon: 'icon-data' },
+  { text: '前端', categoty: 'frontend', path: '/frontend', icon: 'icon-developer-fill' },
+  { text: 'Android', categoty: 'android', path: '/android', icon: 'icon-android' },
+  { text: 'IOS', categoty: 'ios', path: '/ios', icon: 'icon-iOS' },
+  { text: '人工智能', categoty: 'ai', path: '/ai', icon: 'icon-fenxichaxun' },
+  { text: '开发工具', categoty: 'freebie', path: '/freebie', icon: 'icon-banshou_Line' },
+  { text: '代码人生', categoty: 'career', path: '/career', icon: 'icon-wendangguanli-xiangmuleiwendang' },
+  { text: '阅读', categoty: 'article', path: '/article', icon: 'icon--books' },
   { text: '排行榜', path: '/hot/articles', icon: 'icon-xiehuifuwu' }
 ])
-
+emit('update:category', list.find(v => path_current == v.path).categoty)
 </script>
 
 <template>
   <div>
     <el-card class="card">
       <el-menu
-        :default-active="useRoute().path"
+        :default-active="path_current"
         class="menu"
         router
       >

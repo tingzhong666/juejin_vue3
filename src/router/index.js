@@ -5,47 +5,47 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../views/index.vue'),
+      component: () => import('../views/index/index.vue'),
       children: [
         {
           path: '/following',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/recommended',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/backend',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/frontend',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/android',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/ios',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/ai',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/freebie',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/career',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
         {
           path: '/article',
-          component: () => import('../views/index.vue'),
+          component: () => import('../views/index/index.vue'),
         },
       ]
     },

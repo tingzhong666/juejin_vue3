@@ -21,11 +21,11 @@ const search_input = ref('')
 
         <div class="nav">
           <el-menu
-            default-active="1"
+            default-active="/"
             mode="horizontal"
             :router="true"
           >
-            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="2">沸点</el-menu-item>
             <el-menu-item index="3">课程</el-menu-item>
             <el-menu-item index="4">直播</el-menu-item>
