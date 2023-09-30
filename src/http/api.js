@@ -8,7 +8,7 @@ export const article = {
    * @param {string} options.category 类别 对应着首页的二级路由
    * @param {string} options.mdoe 推荐or最新 recommended|latest
    */
-  get_list: ({ limit = 10, page = 1, category = 'recommended', mode = 'recommended' }) => {
+  get_list: async ({ limit = 10, page = 1, category = 'recommended', mode = 'recommended' }) => {
     const res = []
 
     return [
@@ -22,8 +22,9 @@ export const article = {
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
+          { name: '呵呵', id: 'wfsadfwese2' },
         ],
-        cover_img: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dce6c649fcb1443a801cb0f754385a1a~tplv-k3u1fbpfcp-jj:135:90:0:0:q75.avis',
+        cover_img: '/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg',
       },
       {
         id: 'qweqwefsdfsg435',
@@ -49,7 +50,7 @@ export const article = {
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
         ],
-        cover_img: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dce6c649fcb1443a801cb0f754385a1a~tplv-k3u1fbpfcp-jj:135:90:0:0:q75.avis',
+        cover_img: '/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg',
       },
       {
         id: 'qweqwef3sdfsg435',
@@ -75,7 +76,7 @@ export const article = {
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
         ],
-        cover_img: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dce6c649fcb1443a801cb0f754385a1a~tplv-k3u1fbpfcp-jj:135:90:0:0:q75.avis',
+        cover_img: '/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg',
       },
       {
         id: 'qwe5qwefsdfsg435',
@@ -101,7 +102,7 @@ export const article = {
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
         ],
-        cover_img: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dce6c649fcb1443a801cb0f754385a1a~tplv-k3u1fbpfcp-jj:135:90:0:0:q75.avis',
+        cover_img: '/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg',
       },
       {
         id: 'qweqwe7fsdfsg435',
@@ -127,7 +128,7 @@ export const article = {
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
         ],
-        cover_img: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dce6c649fcb1443a801cb0f754385a1a~tplv-k3u1fbpfcp-jj:135:90:0:0:q75.avis',
+        cover_img: '/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg',
       },
       {
         id: 'qweqwef9sdfsg435',
