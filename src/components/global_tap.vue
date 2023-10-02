@@ -1,6 +1,7 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter.js'
 import { reactive, ref } from 'vue'
+import { useRoute } from 'vue-router';
 const store = useCounterStore()
 
 const inspiration = reactive([
@@ -21,12 +22,12 @@ const search_input = ref('')
 
         <div class="nav">
           <el-menu
-            default-active="/"
+            :default-active="useRoute().path"
             mode="horizontal"
             :router="true"
           >
             <el-menu-item index="/">首页</el-menu-item>
-            <el-menu-item index="2">沸点</el-menu-item>
+            <el-menu-item index="/boiling_point">沸点</el-menu-item>
             <el-menu-item index="3">课程</el-menu-item>
             <el-menu-item index="4">直播</el-menu-item>
             <el-menu-item index="5">活动</el-menu-item>
