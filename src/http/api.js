@@ -146,3 +146,44 @@ export const article = {
     ]
   }
 }
+
+// 我的圈子
+export const myclub = {
+  /**
+   * Description
+   * @param {string} options.user_id 用户id
+   * @returns {Array} 
+   */
+  get_list: async ({ user_id }) => {
+    return [
+      { name: '技术交流圈', id: 'asdeq' },
+      { name: '优秀开源项目', id: 'asdwqeq' },
+      { name: '技术交流圈', id: 'asdseq' },
+      { name: '优秀开源项目', id: 'asdsawqeq' },
+      { name: '技术交流圈', id: 'asde1q' },
+      { name: '优秀开源项目', id: 'asdwq2eq' },
+      { name: '技术交流圈', id: 'asd3eq' },
+      { name: '优秀开源项目', id: 'asd4wqeq' },
+    ]
+  }
+}
+
+// 圈子
+export const club = {
+  /**
+   * Description
+   * @returns {Array}
+   */
+  get_list: async () => {
+    return [
+      { name: '技术交流圈', id: 'asdeq' },
+      { name: '优秀开源项目', id: 'asdwqeq' },
+      { name: '技术交流圈', id: 'asdseq' },
+      { name: '优秀开源项目', id: 'asdsawqeq' },
+      { name: '技术交流圈', id: 'asde1q' },
+      { name: '优秀开源项目', id: 'asdwq2eq' },
+      { name: '技术交流圈', id: 'asd3eq' },
+      { name: '优秀开源项目', id: 'asd4wqeq' },
+     ]
+  }
+}

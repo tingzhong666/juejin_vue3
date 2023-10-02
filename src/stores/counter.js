@@ -1,16 +1,10 @@
-import { ref, computed, reactive } from 'vue'
+import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-
   let isLogin = ref(true)
   let userinfo =reactive({
-    avatar: 'src/assets/toux.jpg',
+    avatar: '/mock/toux.jpg',
     name: 'tingzhong',
     ore: 100,
     level: 3,
@@ -20,8 +14,9 @@ export const useCounterStore = defineStore('counter', () => {
     all_exprience: 150,
     follow: 23,
     star: 92,
-    collect: 34
+    collect: 34,
+    id: 'dsfwoiejowenro23423545234'
   })
 
-  return { count, doubleCount, increment, isLogin, userinfo }
+  return { isLogin, userinfo }
 })

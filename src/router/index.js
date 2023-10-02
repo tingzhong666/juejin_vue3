@@ -8,55 +8,26 @@ const router = createRouter({
       component: () => import('../views/index/index.vue'),
       children: [
         {
-          path: '/following',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/recommended',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/backend',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/frontend',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/android',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/ios',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/ai',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/freebie',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/career',
-          component: () => import('../views/index/index.vue'),
-        },
-        {
-          path: '/article',
+          path: '/:type',
           component: () => import('../views/index/index.vue'),
         },
       ]
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/boiling_point',
+      name: 'boiling_point',
+      component: () => import('../views/boiling_point/boiling_point.vue'),
+      children: [
+        {
+          path: '/boiling_point/:type',
+          component: () => import('../views/boiling_point/boiling_point.vue'),
+        },
+        {
+          path: '/boiling_point/:type/:id',
+          component: () => import('../views/boiling_point/boiling_point.vue'),
+        },
+      ]
+    }
   ]
 })
 

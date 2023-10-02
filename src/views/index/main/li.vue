@@ -11,15 +11,18 @@ const dislike_menu = ref(null)
 
 // 小三点菜单的显示
 const hide_after = ref(200)
-const on_li = ref(false)
-const on_float_window = ref(false)
-const dislike_item_show = computed(() => on_li.value || on_float_window.value)
+const on_li = ref(false) // 是否在li上
+const on_float_window = ref(false) // 是否在浮窗上
+const dislike_item_show = computed(() => on_li.value || on_float_window.value) // 是否在浮窗或li上
 onMounted(() => {
   component.value.addEventListener('mouseenter', () => {
     on_li.value = true
   })
   component.value.addEventListener('mouseleave', () => {
-    on_li.value = false
+    // 这里采用与浮窗一样的延时关闭 防止小三点过早关闭 导致浮窗会有些许bug
+    setTimeout(() => {
+      on_li.value = false
+    }, hide_after.value);
   })
   dislike_menu.value.addEventListener('mouseenter', () => {
     on_float_window.value = true
@@ -41,6 +44,7 @@ function shield_tag_show(tags){
   shield.status = !shield.status
   shield.tags = cloneDeep(tags)
 }
+// 浮窗隐藏时回调
 function shield_tag_clear(){
   // 这里采用与浮窗一样的延时关闭 防止小三点过早关闭 导致浮窗会有些许bug
   setTimeout(() => {
