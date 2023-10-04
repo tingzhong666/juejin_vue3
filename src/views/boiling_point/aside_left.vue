@@ -34,7 +34,7 @@ onUnmounted(async () => {
     <el-scrollbar ref="scrollbar" class="scrollbar">
       <el-card class="card">
         <el-menu
-          :default-active="useRoute().path"
+          :default-active="useRoute().path == '/boiling_point' ? '/boiling_point/new' : useRoute().path"
           router
           class="menu"
         >
@@ -89,7 +89,7 @@ onUnmounted(async () => {
 .scrollbar{
   overflow: auto;
 }
-.card >>> .el-card__body{
+.card:deep(.el-card__body) {
   padding: 10px;
 }
 .menu {
@@ -110,7 +110,7 @@ onUnmounted(async () => {
   border-radius: 5px;
   color: var(--el-color-primary);
 }
-.sub-menu >>> .el-sub-menu__icon-arrow{
+.sub-menu:deep(.el-sub-menu__icon-arrow) {
   display: none;
 }
 </style>

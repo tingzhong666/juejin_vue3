@@ -20,7 +20,6 @@ async function scroll_lod(){
       list.push(...await api.article.get_list({ limit: 10, page: ++page.value, category: props.category, mode: mode.value }))
       flag = false
     }
-    console.log(mode.value)
 }
 
 function change(inde){
@@ -61,7 +60,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.component >>> .el-card__body{
+.component:deep(.el-card__body){
   padding: 0;
 }
 .head .item{

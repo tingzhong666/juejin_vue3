@@ -46,14 +46,14 @@ const textarea_length = computed(() =>{
 .textarea{
   position: relative;
 }
-.el-textarea >>> .el-textarea__inner{
+.el-textarea:deep(.el-textarea__inner) {
   background-color: var(--el-color-info-light-9);
   box-shadow: none;
   border: 1px solid #ffffffff;
   padding-bottom: 30px;
 }
 
-.el-textarea >>> .el-textarea__inner:focus{
+.el-textarea:deep(.el-textarea__inner:focus) {
   background-color: #fff;
   border: 1px solid var(--el-color-primary);
 }
