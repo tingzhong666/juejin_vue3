@@ -1,6 +1,6 @@
 <script setup>
-import { reactive, defineProps } from "vue"
-import { useRoute } from "vue-router";
+import { reactive } from "vue"
+import { onBeforeRouteUpdate, useRoute } from "vue-router";
 
 const props = defineProps(['category'])
 const emit = defineEmits(['update:category'])
@@ -20,6 +20,9 @@ const list = reactive([
   { text: '排行榜', path: '/hot/articles', icon: 'icon-xiehuifuwu' }
 ])
 emit('update:category', list.find(v => path_current == v.path).categoty)
+onBeforeRouteUpdate((to) =>{
+  console.log(to)
+})
 </script>
 
 <template>
@@ -43,7 +46,7 @@ emit('update:category', list.find(v => path_current == v.path).categoty)
 .card{
   width: 176px;
 }
-.card >>> .el-card__body{
+.card:deep(.el-card__body){
  padding: 10px;
 }
 .menu {

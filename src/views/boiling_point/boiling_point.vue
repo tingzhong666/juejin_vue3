@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 import aside_left from './aside_left.vue'
+import my_main from './main.vue'
 
 const aside_left_scroll = ref(false)
 async function window_scroll_event(){
@@ -21,14 +22,13 @@ onUnmounted(async () => {
   <div class="view">
     <el-container class="container">
       <el-aside class="aside-left" :class="{ 'aside-left-scroll': aside_left_scroll }" width="180"><aside_left/></el-aside>
-      <el-main class="main">主体</el-main>
+      <el-main class="main"><my_main/></el-main>
       <el-aside class="aside-right">侧边信息</el-aside>
     </el-container>
   </div>
 </template>
 
 <style scoped>
-.main,
 .aside-right{
   background-color: #fff;
   border: 1px solid #000;
@@ -51,6 +51,7 @@ onUnmounted(async () => {
 .main {
   margin: 0 20px;
   margin-left: 190px;
+  padding: 0;
 }
 
 </style>

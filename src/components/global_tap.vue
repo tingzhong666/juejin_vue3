@@ -10,6 +10,7 @@ const inspiration = reactive([
   '苹果发布会 2023'
 ])
 const search_input = ref('')
+
 </script>
 
 <template>
@@ -22,9 +23,9 @@ const search_input = ref('')
 
         <div class="nav">
           <el-menu
-            :default-active="useRoute().path"
+            :default-active="useRoute().matched[0] ? useRoute().matched[0].path : ''"
             mode="horizontal"
-            :router="true"
+            router
           >
             <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="/boiling_point">沸点</el-menu-item>
