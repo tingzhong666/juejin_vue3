@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue"
-import { onBeforeRouteUpdate, useRoute } from "vue-router";
+import { useRoute } from "vue-router";
 
 const props = defineProps(['category'])
 const emit = defineEmits(['update:category'])
@@ -20,19 +20,12 @@ const list = reactive([
   { text: '排行榜', path: '/hot/articles', icon: 'icon-xiehuifuwu' }
 ])
 emit('update:category', list.find(v => path_current == v.path).categoty)
-onBeforeRouteUpdate((to) =>{
-  console.log(to)
-})
 </script>
 
 <template>
   <div>
     <el-card class="card">
-      <el-menu
-        :default-active="path_current"
-        class="menu"
-        router
-      >
+      <el-menu :default-active="path_current" class="menu" router>
         <el-menu-item v-for=" item in list" :index="item.path" :key="item.path" class="item">
           <span :class="item.icon + ' iconfont'"></span>
           {{ item.text }}
@@ -43,12 +36,14 @@ onBeforeRouteUpdate((to) =>{
 </template>
 
 <style scoped>
-.card{
+.card {
   width: 176px;
 }
-.card:deep(.el-card__body){
- padding: 10px;
+
+.card:deep(.el-card__body) {
+  padding: 10px;
 }
+
 .menu {
   border: 0;
 }
@@ -59,13 +54,14 @@ onBeforeRouteUpdate((to) =>{
   border-radius: 5px;
   height: 45px;
 }
+
 .menu .item:hover,
-.menu .item.is-active{
+.menu .item.is-active {
   background-color: var(--el-color-info-light-9);
   color: var(--el-color-primary);
 }
 
-.menu .item .iconfont{
+.menu .item .iconfont {
   margin-right: 10px;
 }
 </style>

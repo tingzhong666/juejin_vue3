@@ -151,6 +151,7 @@ export const article = {
 export const myclub = {
   /**
    * Description
+   * @param {object} options 参数对象 
    * @param {string} options.user_id 用户id
    * @returns {Array} 
    */
@@ -184,6 +185,139 @@ export const club = {
       { name: '优秀开源项目', id: 'asdwq2eq' },
       { name: '技术交流圈', id: 'asd3eq' },
       { name: '优秀开源项目', id: 'asd4wqeq' },
-     ]
+    ]
+  }
+}
+
+// 沸点
+export const boilingPoint = {
+  /**
+   * 获取沸点列表
+   * @param {object} options 参数对象 
+   * @param {Number} options.page 页数
+   * @param {Number} options.limit 条数
+   * @param {String|'new'|'hot'|'following'|'club'} options.category 分类
+   * @param {String} options.club 圈子id。当 options.category='club' 时可填
+   * @returns {any}
+   */
+  async getList(options = { page: 1, limit: 10, category: 'new', club: '' }) {
+    return [
+      {
+        id: 'asd2wq3eq',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        comment_n: 0,
+        club: {
+          id: '',
+          name: ''
+        },
+        img: ["/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg"],
+        link: {
+          url: '',
+          title: '',
+          img: ''
+        }
+      },
+      {
+        id: 'asd2wq4eq',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        comment_n: 0,
+        club: {
+          id: '',
+          name: ''
+        },
+        img: ["/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg"],
+        link: {
+          url: '',
+          title: '',
+          img: ''
+        }
+      },
+      {
+        id: 'asd2wqeeq',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        comment_n: 0,
+        club: {
+          id: 'qw134346eqwe',
+          name: '优秀开源项目'
+        },
+        img: [],
+        link: {
+          url: 'https://juejin.cn/pins/new',
+          title: '重金求子',
+          img: ''
+        }
+      },
+      {
+        id: 'asd2wqeqs',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        comment_n: 0,
+        club: {
+          id: '',
+          name: ''
+        },
+        img: ["/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg",
+          "/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg"],
+        link: {
+          url: '',
+          title: '',
+          img: ''
+        }
+      },
+      {
+        id: 'asd2wqveq',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        comment_n: 0,
+        club: {
+          id: '',
+          name: ''
+        },
+        img: ["/mock/b808570b5b1942dfbc92a483974a3c52~tplv-k3u1fbpfcp-jj_135_90_0_0_q75.jpg"],
+        link: {
+          url: '',
+          title: '',
+          img: ''
+        }
+      },
+    ]
   }
 }
