@@ -19,6 +19,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 16000,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -33,6 +34,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 1600,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -46,6 +48,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 16000,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -59,6 +62,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 1600,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -72,6 +76,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 16000,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -85,6 +90,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 1600,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -98,6 +104,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 16000,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -111,6 +118,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 1600,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -124,6 +132,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 16000,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -137,6 +146,7 @@ export const article = {
         author: '草帽lufei',
         read_n: 1600,
         star_n: 67,
+        star_status: false,
         tags: [
           { name: '前端', id: 'wfsadfwe2' },
           { name: '程序员', id: 'wfsadfwese2' },
@@ -212,8 +222,9 @@ export const boilingPoint = {
         },
         content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
         created_at: '2020-01-01 00:00:00',
-        star_n: 0,
-        comment_n: 0,
+        star_n: 20,
+        star_status: false,
+        comment_n: 20,
         club: {
           id: '',
           name: ''
@@ -236,6 +247,7 @@ export const boilingPoint = {
         content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
         created_at: '2020-01-01 00:00:00',
         star_n: 0,
+        star_status: false,
         comment_n: 0,
         club: {
           id: '',
@@ -259,6 +271,7 @@ export const boilingPoint = {
         content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
         created_at: '2020-01-01 00:00:00',
         star_n: 0,
+        star_status: false,
         comment_n: 0,
         club: {
           id: 'qw134346eqwe',
@@ -282,6 +295,7 @@ export const boilingPoint = {
         content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
         created_at: '2020-01-01 00:00:00',
         star_n: 0,
+        star_status: false,
         comment_n: 0,
         club: {
           id: '',
@@ -306,6 +320,7 @@ export const boilingPoint = {
         content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
         created_at: '2020-01-01 00:00:00',
         star_n: 0,
+        star_status: false,
         comment_n: 0,
         club: {
           id: '',
@@ -319,5 +334,281 @@ export const boilingPoint = {
         }
       },
     ]
+  },
+  comment: {
+    /**
+     * 获取沸点一维评论列表
+     * @param {object} options 参数对象 
+     * @param {String} {options.boilingPointId} 沸点id
+     * @returns {any}
+     */
+    async getCommentList({ boilingPointId }) {
+      return [
+        {
+          id: 'asd2wqveq',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_n: 0,
+          comment_two: [
+            {
+              id: 'asd2wqveq46',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 10,
+              star_status: false,
+              comment_to_content: 'asd2wqveq',
+            },
+            {
+              id: 'asd2wqveq46asdasdffa',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: 'asd2wqveq46',
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: 'asd2wqveq',
+            },
+          ]
+        },
+        {
+          id: 'asd2wqveq',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_n: 0,
+          comment_two: [
+            {
+              id: 'asd2wqveq46',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 10,
+              star_status: false,
+              comment_to_content: 'asd2wqveq',
+            },
+            {
+              id: 'asd2wqveq46asdasdffa',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: 'asd2wqveq46',
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: 'asd2wqveq',
+            },
+          ]
+        },
+        {
+          id: 'asd2wqveq',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_n: 0,
+          comment_two: [
+            {
+              id: 'asd2wqveq46',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 10,
+              star_status: false,
+              comment_to_content: '',
+            },
+            {
+              id: 'asd2wqveq46asdasdffa',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              auther: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: '',
+            },
+          ]
+        },
+      ]
+    },
+    /**
+     * 获取二维评论列表
+     * @param {object} options 参数对象 
+     * @param {String} options.boilingPointId 沸点id
+     * @param {String} options.commentId 一维评论的id
+     * @returns {any}
+     */
+    async getCommentListTwo({ boilingPointId, commentId }) {
+      return [
+        {
+          id: 'asd2wqveq46asdasdffaesrwer',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_to_content: '',
+        },
+        {
+          id: 'asd2wqveq46asdasdffasdfsdfesrwer',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_to_content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        },
+        {
+          id: 'asd2wqveq46asdasdffaesrwes23rr',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_to_content: '',
+        },
+        {
+          id: 'asd2wqveq46asdasdfqwe123faesrwer',
+          auther: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_to_content: '',
+        },
+      ]
+    },
+    /**
+     * 获取单条二维的评论详情
+     * @param {object} options 参数对象 
+     * @param {String} options.boilingPointId 沸点id
+     * @param {String} options.commentId 一维评论的id
+     * @returns {any}
+     */
+    async getCommentDetailTwo({ boilingPointId, commentId }) {
+      return {
+        id: 'asd2wqveq46asdasdffaesrwer',
+        auther: {
+          id: 'asdwqeq',
+          name: 'asdwqeq',
+          avatar: '/mock/toux.jpg',
+          intro: '我是架构师'
+        },
+        content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+        created_at: '2020-01-01 00:00:00',
+        star_n: 0,
+        star_status: false,
+        comment_to_content: '',
+      }
+    }
   }
 }
