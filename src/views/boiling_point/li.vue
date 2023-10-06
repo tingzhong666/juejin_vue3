@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+import comment from './comment.vue'
 const props = defineProps({
   options: Object
 })
+
+const comment_status = ref(false)
 </script>
 
 <template>
@@ -28,20 +32,32 @@ const props = defineProps({
       <img class="link-img" :src="options.link.img || '/023ed669a394d8fea5d4b84fdaf20e47.svg'" />
       <div class="link-right">
         <div class="link-title">{{ options.link.title }}</div>
-        <div class="link-url">{{ options.link.url.replace(/https?:\/\//, '').replace(/\/.*$/ , '') }}</div>
+        <div class="link-url">{{ options.link.url.replace(/https?:\/\//, '').replace(/\/.*$/, '') }}</div>
       </div>
     </a>
     <!-- 圈子 点赞 -->
     <div class="footer">
-      <div class="club">{{ options.club.name }}</div>
-      <div class="footer-star">查看点赞用户</div>
+      <div class="footer-club" v-if="options.club.id"><el-icon class="iconfont icon-quanzi-xuanzhong"></el-icon>{{ options.club.name }}></div>
+      <div class="footer-star" v-if="options.star_n > 0">查看点赞用户</div>
     </div>
     <!-- 行为 -->
     <div class="action">
-      <div class="share">分享</div>
-      <div class="comment">评论</div>
-      <div class="action-star">点赞</div>
+      <div class="share">
+        <el-icon class="iconfont icon-fenxiang"></el-icon>
+        分享
+      </div>
+      <div class="comment" @click="comment_status = !comment_status">
+        <el-icon class="iconfont" :class="{ 'icon-pinglun1': !comment_status, 'icon-pinglun': comment_status }"></el-icon>
+        {{ options.comment_n || '评论' }}
+      </div>
+      <div class="action-star">
+        <el-icon class="iconfont"
+          :class="{ 'icon-youbangzhu': !options.star_status, 'icon-dianzan_kuai': options.star_status }"></el-icon>
+        {{ options.star_n || '点赞' }}
+      </div>
     </div>
+    <!-- 评论 -->
+    <comment v-if="comment_status" class="comment" :id="options.id"/>
   </el-card>
 </template>
 
@@ -98,6 +114,7 @@ const props = defineProps({
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
 /* 链接 */
 .link {
   display: flex;
@@ -109,21 +126,37 @@ const props = defineProps({
   color: var(--el-text-color-primary);
   padding: 10px 0;
 }
+
 .link-img {
   width: 30px;
   height: 30px;
   margin: 10px;
 }
-.link-url{
+
+.link-url {
   font-size: var(--el-font-size-extra-small);
   color: var(--el-text-color-regular);
   margin-top: 3px;
 }
+
 /* 圈子 点赞 */
 .footer {
   margin-top: 10px;
   position: relative;
   height: 30px;
+}
+
+.footer-club {
+  font-size: var(--el-font-size-extra-small);
+  background-color: var(--el-color-primary-light-8);
+  border-radius: 10px;
+  padding: 3px 5px;
+  color: var(--el-color-primary-dark-2);
+  cursor: pointer;
+  display: inline-block;
+}
+.footer-club:hover{
+  background-color: var(--el-color-primary-light-7);
 }
 
 .footer-star {
@@ -138,9 +171,17 @@ const props = defineProps({
   width: 100%;
   text-align: center;
   cursor: pointer;
+  border-top: 1px solid var(--el-color-info-light-9);
+  padding-top: 15px;
 }
 
 .action>div {
   flex: 1;
+  font-size: var(--el-font-size-extra-small);
+  color: var(--el-text-color-regular);
+}
+
+.action>div:hover {
+  color: var(--el-color-info);
 }
 </style>
