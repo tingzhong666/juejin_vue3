@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import comment from './comment.vue'
+import giveLike from '@/components/give_like.vue'
+import actionComment from '@/components/action_comment.vue';
 const props = defineProps({
   options: Object
 })
@@ -37,7 +39,8 @@ const comment_status = ref(false)
     </a>
     <!-- 圈子 点赞 -->
     <div class="footer">
-      <div class="footer-club" v-if="options.club.id"><el-icon class="iconfont icon-quanzi-xuanzhong"></el-icon>{{ options.club.name }}></div>
+      <div class="footer-club" v-if="options.club.id"><el-icon class="iconfont icon-quanzi-xuanzhong"></el-icon>{{
+        options.club.name }}></div>
       <div class="footer-star" v-if="options.star_n > 0">查看点赞用户</div>
     </div>
     <!-- 行为 -->
@@ -46,18 +49,12 @@ const comment_status = ref(false)
         <el-icon class="iconfont icon-fenxiang"></el-icon>
         分享
       </div>
-      <div class="comment" @click="comment_status = !comment_status">
-        <el-icon class="iconfont" :class="{ 'icon-pinglun1': !comment_status, 'icon-pinglun': comment_status }"></el-icon>
-        {{ options.comment_n || '评论' }}
-      </div>
-      <div class="action-star">
-        <el-icon class="iconfont"
-          :class="{ 'icon-youbangzhu': !options.star_status, 'icon-dianzan_kuai': options.star_status }"></el-icon>
-        {{ options.star_n || '点赞' }}
-      </div>
+      <actionComment class="comment" :comment_n="options.comment_n" v-model:comment_status="comment_status"
+        hover_mode="two" />
+      <giveLike :star_status="options.star_status" :star_n="options.star_n" hover_mode="two" />
     </div>
     <!-- 评论 -->
-    <comment v-if="comment_status" class="comment" :id="options.id"/>
+    <comment v-if="comment_status" class="comment" :id="options.id" />
   </el-card>
 </template>
 
@@ -155,7 +152,8 @@ const comment_status = ref(false)
   cursor: pointer;
   display: inline-block;
 }
-.footer-club:hover{
+
+.footer-club:hover {
   background-color: var(--el-color-primary-light-7);
 }
 
@@ -177,11 +175,14 @@ const comment_status = ref(false)
 
 .action>div {
   flex: 1;
+}
+
+.action .share {
   font-size: var(--el-font-size-extra-small);
   color: var(--el-text-color-regular);
 }
 
-.action>div:hover {
+.action .share:hover {
   color: var(--el-color-info);
 }
 </style>
