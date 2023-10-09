@@ -16,7 +16,7 @@ const input = ref('')
 </script>
 
 <template>
-  <div class="component">
+  <div class="my-comment">
     <!-- 评论发送 -->
     <div class="comment-form">
       <!-- 头像 -->

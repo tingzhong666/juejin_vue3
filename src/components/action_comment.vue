@@ -1,14 +1,11 @@
 <script setup>
+import { ref } from 'vue'
 const props = defineProps({
-  comment_n: {
+  commentN: {
     type: Number,
     default: 0
   },
-  comment_status: {
-    type: Boolean,
-    default: false
-  },
-  hover_mode: {
+  hoverMode: {
     type: String,
     default: 'one',
     validator(value) {
@@ -20,22 +17,31 @@ const props = defineProps({
     default: '评论'
   }
 })
-const emit = defineEmits(['update:comment_status'])
+// 评论按钮avtive状态
+const commentStatus = ref(false)
+const emit = defineEmits(['update:comment-status'])
+
+const click = () => {
+  commentStatus.value = !commentStatus.value
+  emit('update:comment-status', commentStatus.value)
+}
 </script>
 
 <template>
-  <div class="component" :class="{ hover_one: 'hover-mode' == 'one', 'hover-two': hover_mode == 'two' }"
-    @click="$emit('update:comment_status', !comment_status)">
+  <div class="action-comment" :class="{ 'hover-one': hoverMode == 'one', 'hover-two': hoverMode == 'two' }"
+    @click="click">
     <el-icon class="iconfont"
-      :class="{ 'icon-pinglun1': !comment_status, 'icon-pinglun active': comment_status }"></el-icon>
-    {{ comment_n || text }}
+      :class="{ 'icon-pinglun1': !commentStatus, 'icon-pinglun active': commentStatus }"></el-icon>
+    {{ commentN || text }}
   </div>
 </template>
 
 <style scoped>
-.component {
+.action-comment {
   font-size: var(--el-font-size-extra-small);
   color: var(--el-text-color-regular);
+  cursor: pointer;
+  display: inline-block;
 }
 
 .hover-one:hover {

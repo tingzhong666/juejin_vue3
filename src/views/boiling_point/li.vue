@@ -49,9 +49,9 @@ const comment_status = ref(false)
         <el-icon class="iconfont icon-fenxiang"></el-icon>
         分享
       </div>
-      <actionComment class="comment" :comment_n="options.comment_n" v-model:comment_status="comment_status"
-        hover_mode="two" />
-      <giveLike :star_status="options.star_status" :star_n="options.star_n" hover_mode="two" />
+      <actionComment class="action-comment" :comment-n="options.comment_n" v-model:comment-status="comment_status"
+        hover-mode="two" />
+      <giveLike :star-status="options.star_status" :star-n="options.star_n" hover-mode="two" />
     </div>
     <!-- 评论 -->
     <comment v-if="comment_status" class="comment" :id="options.id" />
@@ -184,5 +184,9 @@ const comment_status = ref(false)
 
 .action .share:hover {
   color: var(--el-color-info);
+}
+
+.comment{
+  margin-top: 20px;
 }
 </style>
