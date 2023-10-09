@@ -1,31 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-
 const props = defineProps({
-  hideAfter: {
-    type: Number,
-    default: 200,
-  },
+  // 作者名称
   authorName: {
     type: String,
     default: ''
   },
-  visible: {
-    type: Boolean,
-    default: false,
-  },
+  // 菜单按钮显示状态
   dislikeItemShow: {
     type: Boolean,
     default: false,
   },
 })
 // 屏蔽 事件提交 
-const emit = defineEmits(['update:visible', 'maskingAuthor', 'report'])
+const emit = defineEmits([
+  // 浮窗显示状态
+  'update:visible',
+  // 屏蔽作者
+  'maskingAuthor',
+  // 举报
+  'report'])
 </script>
 
 <template>
-  <el-popover placement="bottom-end" :width="200" trigger="hover" :hide-after="hideAfter" transition="none"
-    class="component" @after-leave="$emit('update:visible', false)" @show="$emit('update:visible', true)">
+  <el-popover placement="bottom-end" :width="200" trigger="hover" transition="none" class="trial"
+    @after-leave="$emit('update:visible', false)" @show="$emit('update:visible', true)">
     <template #reference>
       <span class="dislike-item icon-shenglvehao iconfont" v-show="dislikeItemShow"></span>
     </template>
@@ -42,9 +40,14 @@ const emit = defineEmits(['update:visible', 'maskingAuthor', 'report'])
 </template>
 
 <style scoped>
-.dislike-item{
-  font-size: 13px;
+.trial{
+  display: inline-block;
 }
+.dislike-item {
+  font-size: 13px;
+  cursor: pointer;
+}
+
 .dislike-item:hover {
   color: var(--el-color-primary);
 }
