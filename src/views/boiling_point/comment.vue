@@ -38,7 +38,7 @@ const input = ref('')
     </div>
     <!-- 评论列表 -->
     <div class="comment-list">
-      <commenti_li v-for="item of list" :key="item.id" :data="item" class="comment"/>
+      <commenti_li v-for="item of list" :key="item.id" :data="item" class="comment" :boiling-point-author-id="id"/>
     </div>
     <!-- 查看更多评论 进入沸点详情 -->
     <div class="fetch-more-comment"></div>
