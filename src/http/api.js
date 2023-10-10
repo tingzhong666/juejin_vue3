@@ -214,7 +214,7 @@ export const boilingPoint = {
     return [
       {
         id: 'asd2wq3eq',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',
@@ -238,7 +238,7 @@ export const boilingPoint = {
       },
       {
         id: 'asd2wq4eq',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',
@@ -262,7 +262,7 @@ export const boilingPoint = {
       },
       {
         id: 'asd2wqeeq',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',
@@ -286,7 +286,7 @@ export const boilingPoint = {
       },
       {
         id: 'asd2wqeqs',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',
@@ -311,7 +311,7 @@ export const boilingPoint = {
       },
       {
         id: 'asd2wqveq',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',
@@ -346,7 +346,7 @@ export const boilingPoint = {
       return [
         {
           id: 'asd2wqveq',
-          auther: {
+          author: {
             id: 'asdwqeq',
             name: 'asdwqeq',
             avatar: '/mock/toux.jpg',
@@ -360,123 +360,7 @@ export const boilingPoint = {
           comment_two: [
             {
               id: 'asd2wqveq46',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 10,
-              star_status: false,
-              comment_to_content: 'asd2wqveq',
-            },
-            {
-              id: 'asd2wqveq46asdasdffa',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 0,
-              star_status: false,
-              comment_to_content: 'asd2wqveq46',
-            },
-            {
-              id: 'asd2wqveq4sdf6',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 0,
-              star_status: false,
-              comment_to_content: 'asd2wqveq',
-            },
-          ]
-        },
-        {
-          id: 'asd2wqveq',
-          auther: {
-            id: 'asdwqeq',
-            name: 'asdwqeq',
-            avatar: '/mock/toux.jpg',
-            intro: '我是架构师'
-          },
-          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-          created_at: '2020-01-01 00:00:00',
-          star_n: 0,
-          star_status: false,
-          comment_n: 0,
-          comment_two: [
-            {
-              id: 'asd2wqveq46',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 10,
-              star_status: false,
-              comment_to_content: 'asd2wqveq',
-            },
-            {
-              id: 'asd2wqveq46asdasdffa',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 0,
-              star_status: false,
-              comment_to_content: 'asd2wqveq46',
-            },
-            {
-              id: 'asd2wqveq4sdf6',
-              auther: {
-                id: 'asdwqeq',
-                name: 'asdwqeq',
-                avatar: '/mock/toux.jpg',
-                intro: '我是架构师'
-              },
-              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-              created_at: '2020-01-01 00:00:00',
-              star_n: 0,
-              star_status: false,
-              comment_to_content: 'asd2wqveq',
-            },
-          ]
-        },
-        {
-          id: 'asd2wqveq',
-          auther: {
-            id: 'asdwqeq',
-            name: 'asdwqeq',
-            avatar: '/mock/toux.jpg',
-            intro: '我是架构师'
-          },
-          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
-          created_at: '2020-01-01 00:00:00',
-          star_n: 0,
-          star_status: false,
-          comment_n: 0,
-          comment_two: [
-            {
-              id: 'asd2wqveq46',
-              auther: {
+              author: {
                 id: 'asdwqeq',
                 name: 'asdwqeq',
                 avatar: '/mock/toux.jpg',
@@ -487,10 +371,28 @@ export const boilingPoint = {
               star_n: 10,
               star_status: false,
               comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
             },
             {
               id: 'asd2wqveq46asdasdffa',
-              auther: {
+              author: {
+                id: 'dsfwoiejowenro23423545234',
+                name: '作为听众',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较22222',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              author: {
                 id: 'asdwqeq',
                 name: 'asdwqeq',
                 avatar: '/mock/toux.jpg',
@@ -500,11 +402,45 @@ export const boilingPoint = {
               created_at: '2020-01-01 00:00:00',
               star_n: 0,
               star_status: false,
-              comment_to_content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              comment_to_content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较22222',
+              comment_to_user_id: 'dsfwoiejowenro23423545234',
+              comment_to_user_name: '作为听众'
+            },
+          ]
+        },
+        {
+          id: 'asd2wqveq',
+          author: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_n: 0,
+          comment_two: [
+            {
+              id: 'asd2wqveq46',
+              author: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 10,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
             },
             {
-              id: 'asd2wqveq4sdf6',
-              auther: {
+              id: 'asd2wqveq46asdasdffa',
+              author: {
                 id: 'asdwqeq',
                 name: 'asdwqeq',
                 avatar: '/mock/toux.jpg',
@@ -515,6 +451,88 @@ export const boilingPoint = {
               star_n: 0,
               star_status: false,
               comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              author: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
+            },
+          ]
+        },
+        {
+          id: 'asd2wqveq',
+          author: {
+            id: 'asdwqeq',
+            name: 'asdwqeq',
+            avatar: '/mock/toux.jpg',
+            intro: '我是架构师'
+          },
+          content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+          created_at: '2020-01-01 00:00:00',
+          star_n: 0,
+          star_status: false,
+          comment_n: 0,
+          comment_two: [
+            {
+              id: 'asd2wqveq46',
+              author: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 10,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
+            },
+            {
+              id: 'asd2wqveq46asdasdffa',
+              author: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
+            },
+            {
+              id: 'asd2wqveq4sdf6',
+              author: {
+                id: 'asdwqeq',
+                name: 'asdwqeq',
+                avatar: '/mock/toux.jpg',
+                intro: '我是架构师'
+              },
+              content: 'asdwqeq急急急急急急急急急急姐姐斤斤计较',
+              created_at: '2020-01-01 00:00:00',
+              star_n: 0,
+              star_status: false,
+              comment_to_content: '',
+              comment_to_user_id: '',
+              comment_to_user_name: ''
             },
           ]
         },
@@ -531,7 +549,7 @@ export const boilingPoint = {
       return [
         {
           id: 'asd2wqveq46asdasdffaesrwer',
-          auther: {
+          author: {
             id: 'asdwqeq',
             name: 'asdwqeq',
             avatar: '/mock/toux.jpg',
@@ -545,7 +563,7 @@ export const boilingPoint = {
         },
         {
           id: 'asd2wqveq46asdasdffasdfsdfesrwer',
-          auther: {
+          author: {
             id: 'asdwqeq',
             name: 'asdwqeq',
             avatar: '/mock/toux.jpg',
@@ -559,7 +577,7 @@ export const boilingPoint = {
         },
         {
           id: 'asd2wqveq46asdasdffaesrwes23rr',
-          auther: {
+          author: {
             id: 'asdwqeq',
             name: 'asdwqeq',
             avatar: '/mock/toux.jpg',
@@ -573,7 +591,7 @@ export const boilingPoint = {
         },
         {
           id: 'asd2wqveq46asdasdfqwe123faesrwer',
-          auther: {
+          author: {
             id: 'asdwqeq',
             name: 'asdwqeq',
             avatar: '/mock/toux.jpg',
@@ -597,7 +615,7 @@ export const boilingPoint = {
     async getCommentDetailTwo({ boilingPointId, commentId }) {
       return {
         id: 'asd2wqveq46asdasdffaesrwer',
-        auther: {
+        author: {
           id: 'asdwqeq',
           name: 'asdwqeq',
           avatar: '/mock/toux.jpg',

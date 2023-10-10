@@ -1,11 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 import comment from './comment.vue'
 import giveLike from '@/components/give_like.vue'
 import actionComment from '@/components/action_comment.vue';
 const props = defineProps({
   options: Object
 })
+provide('boilingPointAuthorId', props.options.author.id)
 
 const comment_status = ref(false)
 </script>
@@ -14,10 +15,10 @@ const comment_status = ref(false)
   <el-card class="component">
     <!-- 头部 -->
     <div class="pin-header">
-      <img :src="options.auther.avatar" alt="" class="avatar">
+      <img :src="options.author.avatar" alt="" class="avatar">
       <div class="pin-header-right">
-        <div class="name">{{ options.auther.name }}</div>
-        <span class="intro">{{ options.auther.intro }} ·</span>
+        <div class="name">{{ options.author.name }}</div>
+        <span class="intro">{{ options.author.intro }} ·</span>
         <span class="time">{{ options.created_at }}</span>
       </div>
     </div>
