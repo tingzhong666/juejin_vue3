@@ -27,7 +27,21 @@ const router = createRouter({
           component: () => import('../views/boiling_point/boiling_point.vue'),
         },
       ]
-    }
+    },
+    {
+      path: '/course',
+      component: () => import('../views/course/course.vue'),
+      children: [
+        {
+          path: '/course/:course',
+          component: () => import('../views/course/course.vue'),
+        },
+        {
+          path: '/course/:course/:category',
+          component: () => import('../views/course/course.vue'),
+        },
+      ]
+    },
   ]
 })
 

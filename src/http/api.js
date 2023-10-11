@@ -630,3 +630,33 @@ export const boilingPoint = {
     }
   }
 }
+
+// 课程
+export const course = {
+  /**
+   * 分类获取
+   * @param {object} options 参数对象 
+   * @param {'course'|'bytetech'} options.course 普通小册还是字节内部课
+   * @returns {Array}
+   */
+  async getCategory({ course = 'course' }) {
+    const res1 = [
+      { name: '后端', id: '123aespc' },
+      { name: '前端', id: '123adspc' },
+      { name: 'android', id: '123afspc' },
+      { name: 'IOS', id: '123asgpc' },
+      { name: '人工智能', id: '123asvpc' },
+      { name: '开发工具', id: '123ascpc' },
+      { name: '代码人生', id: '123asxpc' },
+      { name: '阅读', id: '123aszpc' },
+    ]
+    const res2 = [
+      { name: '后端', id: '123aespc' },
+      { name: '前端', id: '123adspc' },
+      { name: 'android', id: '123afspc' },
+      { name: 'IOS', id: '123asgpc' },
+      { name: '代码人生', id: '123asxpc' },
+    ]
+    return course == 'course' ? res1 : res2
+  },
+}

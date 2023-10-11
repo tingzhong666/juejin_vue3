@@ -6,6 +6,7 @@
 
 html{
   --my-global_tap_height: 60px;
+  background-color: #f2f3f5;
 }
 
 li {

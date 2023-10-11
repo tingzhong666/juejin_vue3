@@ -24,13 +24,12 @@ onUnmounted(async () => {
   <div class="app">
     <global_tap class="global_tap" :class="{ global_tap_scroll: global_tap_scroll }" ref="global_tap_ref"/>
     
-    <RouterView :key="$route.fullPath"/>
+    <RouterView :key="$route.fullPath" class="router-view"/>
   </div>
 </template>
 
 <style scoped>
 .app{
-  background-color: #f2f3f5;
   padding-top: 60px;
 }
 
@@ -43,5 +42,9 @@ onUnmounted(async () => {
 }
 .global_tap_scroll{
   top: calc(var(--my-global_tap_height) * -1);
+}
+
+.router-view{
+  margin-top: 20px;
 }
 </style>

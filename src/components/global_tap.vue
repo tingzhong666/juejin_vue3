@@ -29,13 +29,13 @@ const search_input = ref('')
           >
             <el-menu-item index="/">首页</el-menu-item>
             <el-menu-item index="/boiling_point">沸点</el-menu-item>
-            <el-menu-item index="3">课程</el-menu-item>
-            <el-menu-item index="4">直播</el-menu-item>
-            <el-menu-item index="5">活动</el-menu-item>
-            <el-menu-item index="6">竞赛</el-menu-item>
-            <el-menu-item index="7">商城</el-menu-item>
-            <el-menu-item index="8">APP</el-menu-item>
-            <el-menu-item index="9">插件</el-menu-item>
+            <el-menu-item index="/course">课程</el-menu-item>
+            <el-menu-item index="/live">直播</el-menu-item>
+            <el-menu-item index="/events">活动</el-menu-item>
+            <el-menu-item index="/chanllenge">竞赛</el-menu-item>
+            <el-menu-item index="/">商城</el-menu-item>
+            <el-menu-item index="/app">APP</el-menu-item>
+            <el-menu-item index="/extension">插件</el-menu-item>
           </el-menu>
         </div>
       </div>
