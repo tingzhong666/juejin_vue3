@@ -10,8 +10,8 @@ const header = ref(1)
     <!-- 筛选与排序 -->
     <HeaderOne v-if="header === 1" @to-search="header=2"></HeaderOne>
     <!-- 搜索 -->
-    <HeaderTwo v-if="header === 2"></HeaderTwo>
-    <!-- 课程列表 -->
+    <HeaderTwo v-if="header === 2" @to-return="header=1"></HeaderTwo>
+    <!-- 课程列表 -->1
   </el-card>
 </template>
 

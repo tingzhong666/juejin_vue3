@@ -83,6 +83,7 @@ const sort = ref('all')
 .filter-category {
   display: flex;
   height: 40px;
+  align-items: center;
 }
 
 .label {
@@ -150,6 +151,7 @@ const sort = ref('all')
 
 .filter-category {
   border-bottom: 1px solid var(--el-color-info-light-8);
+  padding-bottom: 10px;
 }
 
 /* 排序 */
