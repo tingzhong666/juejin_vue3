@@ -1,5 +1,6 @@
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
+import LevelTag from '@/components/level_tag.vue'
 
 const props = defineProps({
   data: {
@@ -30,6 +31,7 @@ const route = useRoute()
         <!-- 作者名称 -->
         <div class="author-name author-info-item">{{ data.user_info.user_name }}</div>
         <!-- 创作等级 待定-->
+        <LevelTag :level="data.user_info.level" :mode="2" class="Author-Level author-info-item"></LevelTag>
         <!-- vip标签 待定-->
         <!-- 职业公司 -->
         <div class="author-intro author-info-item">{{ data.user_info.job_title || '' }}{{ data.user_info.company ? ' @ ' +
