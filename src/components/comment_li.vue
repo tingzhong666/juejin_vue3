@@ -2,6 +2,7 @@
 import ActionComment from '@/components/action_comment.vue'
 import GiveLike from '@/components/give_like.vue'
 import Trial from '@/components/Trial.vue'
+import LevelTag from '@/components/level_tag.vue'
 import { ref } from 'vue'
 const props = defineProps({
   data: {
@@ -24,6 +25,8 @@ const commentlisttwoShow = ref(false)
       <div class="head">
         <span class="name">{{ data.author.name }}</span>
         <!-- 掘友等级 创作者等级 先不做 -->
+        <LevelTag :level="data.author.user_level" :mode="1" class="user-Level"></LevelTag>
+        <LevelTag :level="data.author.author_level" :mode="2" class="author-level"></LevelTag>
         <slot name="intro">
           <span class="intro">{{ data.author.intro }}</span>
         </slot>
@@ -33,7 +36,8 @@ const commentlisttwoShow = ref(false)
       <slot name="content-bottom"></slot>
       <div class="action">
         <GiveLike :star_n="data.star_n" :star_status="data.star_status" class="action-item" />
-        <ActionComment :comment_n="data.comment_n" class="action-item" @update:comment-status="v => commentlisttwoShow = v"/>
+        <ActionComment :comment_n="data.comment_n" class="action-item"
+          @update:comment-status="v => commentlisttwoShow = v" />
         <Trial :author-name="data.author.name" :dislike-item-show="true" class="action-item" />
       </div>
       <slot name="action-bottom"></slot>
@@ -58,7 +62,7 @@ const commentlisttwoShow = ref(false)
   border-radius: 50%;
 }
 
-.right{
+.right {
   flex: 1;
 }
 
@@ -68,7 +72,9 @@ const commentlisttwoShow = ref(false)
   font-size: var(--el-font-size-small);
 }
 
-.head>span {
+.head .name,
+.user-Level,
+.author-level {
   display: inline-block;
   margin-right: 15px;
 }
@@ -96,4 +102,5 @@ const commentlisttwoShow = ref(false)
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-}</style>
+}
+</style>
