@@ -2,7 +2,8 @@
 import cloneDeep from 'lodash/cloneDeep'
 import { reactive, computed, ref, onMounted, watch } from 'vue'
 import GiveLike from '@/components/give_like.vue'
-import Trial from '@/components/Trial.vue';
+import Trial from '@/components/Trial.vue'
+import UserPopover from '@/components/user_popover.vue'
 
 const props = defineProps({
   item: Object
@@ -59,7 +60,11 @@ watch(() => dislike.value.floatWindowShow, (newV, oldV) => {
         <div class="entry-footer">
           <!-- action -->
           <div class="action-list">
-            <span class="author">{{ item.author }}</span>
+            <UserPopover :id="item.author_id">
+              <template #default>
+                <span class="author">{{ item.author }}</span>
+              </template>
+            </UserPopover>
             <span class="read_n icon-liulanliang iconfont">{{ item.read_n }}</span>
             <GiveLike class="star_n" :star-status="item.star_status" :star-n="item.star_n" />
             <!-- 屏蔽与举报菜单 -->
@@ -114,9 +119,6 @@ watch(() => dislike.value.floatWindowShow, (newV, oldV) => {
 }
 
 
-.entry-footer {
-  position: relative;
-}
 
 .intro {
   margin: 10px;
@@ -129,13 +131,17 @@ watch(() => dislike.value.floatWindowShow, (newV, oldV) => {
   text-overflow: ellipsis;
 }
 
+.entry-footer {
+  position: relative;
+}
+
 .action-list .author {
   padding-right: 10px;
   border-right: 1px solid var(--el-color-info-light-5);
   margin-right: 10px;
 }
 
-.action-list .author:hover {
+.action-list >>> .author:hover {
   color: var(--el-color-primary);
 }
 

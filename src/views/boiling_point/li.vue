@@ -2,7 +2,8 @@
 import { provide, ref } from 'vue'
 import comment from './comment.vue'
 import giveLike from '@/components/give_like.vue'
-import actionComment from '@/components/action_comment.vue';
+import actionComment from '@/components/action_comment.vue'
+import UserPopover from '@/components/user_popover.vue'
 const props = defineProps({
   options: Object
 })
@@ -15,9 +16,13 @@ const comment_status = ref(false)
   <el-card class="component">
     <!-- 头部 -->
     <div class="pin-header">
-      <img :src="options.author.avatar" alt="" class="avatar">
+      <UserPopover>
+        <img :src="options.author.avatar" alt="" class="avatar">
+      </UserPopover>
       <div class="pin-header-right">
-        <div class="name">{{ options.author.name }}</div>
+        <UserPopover>
+          <div class="name">{{ options.author.name }}</div>
+        </UserPopover>
         <span class="intro">{{ options.author.intro }} ·</span>
         <span class="time">{{ options.created_at }}</span>
       </div>
@@ -74,10 +79,12 @@ const comment_status = ref(false)
   height: 50px;
   border-radius: 50%;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .name {
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .intro,
@@ -187,7 +194,7 @@ const comment_status = ref(false)
   color: var(--el-color-info);
 }
 
-.comment{
+.comment {
   margin-top: 20px;
 }
 </style>
