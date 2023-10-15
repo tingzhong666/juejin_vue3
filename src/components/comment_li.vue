@@ -3,6 +3,7 @@ import ActionComment from '@/components/action_comment.vue'
 import GiveLike from '@/components/give_like.vue'
 import Trial from '@/components/Trial.vue'
 import LevelTag from '@/components/level_tag.vue'
+import UserPopover from '@/components/user_popover.vue'
 import { ref } from 'vue'
 const props = defineProps({
   data: {
@@ -19,14 +20,22 @@ const commentlisttwoShow = ref(false)
 <template>
   <div class="my-commenti-li">
     <div class="avatar">
-      <img :src="data.author.avatar" />
+      <UserPopover>
+        <img :src="data.author.avatar" />
+      </UserPopover>
     </div>
     <div class="right">
       <div class="head">
-        <span class="name">{{ data.author.name }}</span>
-        <!-- 掘友等级 创作者等级 先不做 -->
-        <LevelTag :level="data.author.user_level" :mode="1" class="user-Level"></LevelTag>
-        <LevelTag :level="data.author.author_level" :mode="2" class="author-level"></LevelTag>
+        <UserPopover>
+          <template #default>
+            <span class="head-user-info">
+              <span class="name">{{ data.author.name }}</span>
+              <!-- 掘友等级 创作者等级 -->
+              <LevelTag :level="data.author.user_level" :mode="1" class="user-Level"></LevelTag>
+              <LevelTag :level="data.author.author_level" :mode="2" class="author-level"></LevelTag>
+            </span>
+          </template>
+        </UserPopover>
         <slot name="intro">
           <span class="intro">{{ data.author.intro }}</span>
         </slot>
@@ -60,6 +69,7 @@ const commentlisttwoShow = ref(false)
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .right {
@@ -78,7 +88,9 @@ const commentlisttwoShow = ref(false)
   display: inline-block;
   margin-right: 15px;
 }
-
+.head-user-info{
+  cursor: pointer;
+}
 .intro {
   border-right: 2px solid var(--el-color-info-light-8);
   padding-right: 15px;
