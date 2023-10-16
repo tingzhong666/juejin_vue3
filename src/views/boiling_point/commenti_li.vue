@@ -15,7 +15,7 @@ const boilingPointAuthorId = inject('boilingPointAuthorId')
 <template>
   <CommentLi :data="data">
     <!-- 二维评论 -->
-    <template #action-bottom>
+    <template #comment-form-bottom>
       <div class="comment-list-two" v-if="data.comment_two.length">
         <CommentLi class="comment-list-two-li" :data="item" v-for="item of data.comment_two" :key="item.id">
           <template #intro>

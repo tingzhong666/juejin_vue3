@@ -141,7 +141,7 @@ watch(() => dislike.value.floatWindowShow, (newV, oldV) => {
   margin-right: 10px;
 }
 
-.action-list >>> .author:hover {
+.action-list:deep(.author:hover) {
   color: var(--el-color-primary);
 }
 
