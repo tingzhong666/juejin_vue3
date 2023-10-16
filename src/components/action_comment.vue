@@ -25,6 +25,12 @@ const click = () => {
   commentStatus.value = !commentStatus.value
   emit('update:comment-status', commentStatus.value)
 }
+
+defineExpose({
+  commentStatusSet(v) {
+    commentStatus.value = v
+  }
+})
 </script>
 
 <template>
@@ -54,4 +60,5 @@ const click = () => {
 
 .active {
   color: var(--el-color-primary);
-}</style>
+}
+</style>

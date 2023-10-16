@@ -2,6 +2,9 @@
 import * as api from '@/http/api'
 import commenti_li from './commenti_li.vue'
 import { ref } from 'vue'
+import CommentForm from '@/components/comment_form.vue'
+import { useCounterStore } from '@/stores/counter.js'
+const counter = useCounterStore()
 
 const props = defineProps(['id'])
 
@@ -12,33 +15,24 @@ async function getList() {
 }
 getList()
 
-const input = ref('')
 </script>
 
 <template>
   <div class="my-comment">
-    <!-- 评论发送 -->
     <div class="comment-form">
       <!-- 头像 -->
-      <div class="avatar">
-        <!-- <img :src="" alt=""> -->
-      </div>
+      <img :src="counter.userinfo.avatar" alt="" class="avatar">
 
-      <div class="form-box">
-        <el-input v-model="input" placeholder="输入评论（Enter换行，Ctrl + Enter发送）" />
-        <!-- 行为 -->
-        <div class="form-action">
-
-        </div>
-      </div>
+      <CommentForm class="my-form-box"></CommentForm>
     </div>
+
     <!-- 评论排序 -->
-    <div class="sor">
+    <div class="sort">
 
     </div>
     <!-- 评论列表 -->
     <div class="comment-list">
-      <commenti_li v-for="item of list" :key="item.id" :data="item" class="comment" :boiling-point-author-id="id"/>
+      <commenti_li v-for="item of list" :key="item.id" :data="item" class="comment" :boiling-point-author-id="id" />
     </div>
     <!-- 查看更多评论 进入沸点详情 -->
     <div class="fetch-more-comment"></div>
@@ -46,10 +40,31 @@ const input = ref('')
 </template>
 
 <style scoped>
-.comment-list .comment{
+.my-comment-form {
+  display: flex;
+}
+
+.comment-form {
+  display: flex;
+}
+
+.comment-form .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 14px;
+}
+
+.comment-form .my-form-box {
+  flex: 1;
+}
+
+/* 评论列表 */
+.comment-list .comment {
   border-bottom: 1px solid var(--el-color-info-light-8);
 }
-.comment-list .comment:last-child{
+
+.comment-list .comment:last-child {
   border: 0;
 }
 </style>

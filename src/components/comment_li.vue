@@ -4,6 +4,7 @@ import GiveLike from '@/components/give_like.vue'
 import Trial from '@/components/Trial.vue'
 import LevelTag from '@/components/level_tag.vue'
 import UserPopover from '@/components/user_popover.vue'
+import CommentForm from '@/components/comment_form.vue'
 import { ref } from 'vue'
 const props = defineProps({
   data: {
@@ -14,7 +15,18 @@ const props = defineProps({
   },
 })
 
+// 评论
 const commentlisttwoShow = ref(false)
+const refCommentForm = ref(null)
+const refActionComment = ref(null)
+const updateCommentStatus = function (v) {
+  commentlisttwoShow.value = v
+  if (commentlisttwoShow.value) refCommentForm.value.focus()
+}
+const blurCommentForm = function () {
+  commentlisttwoShow.value = false
+  refActionComment.value.commentStatusSet(commentlisttwoShow.value)
+}
 </script>
 
 <template>
@@ -45,11 +57,12 @@ const commentlisttwoShow = ref(false)
       <slot name="content-bottom"></slot>
       <div class="action">
         <GiveLike :star_n="data.star_n" :star_status="data.star_status" class="action-item" />
-        <ActionComment :comment_n="data.comment_n" class="action-item"
-          @update:comment-status="v => commentlisttwoShow = v" />
+        <ActionComment ref="refActionComment" :comment_n="data.comment_n" class="action-item" @update:comment-status="updateCommentStatus" />
         <Trial :author-name="data.author.name" :dislike-item-show="true" class="action-item" />
       </div>
-      <slot name="action-bottom"></slot>
+      <CommentForm @blur="blurCommentForm" ref="refCommentForm" class="my-comment-form" v-show="commentlisttwoShow">
+      </CommentForm>
+      <slot name="comment-form-bottom"></slot>
     </div>
   </div>
 </template>
@@ -88,9 +101,11 @@ const commentlisttwoShow = ref(false)
   display: inline-block;
   margin-right: 15px;
 }
-.head-user-info{
+
+.head-user-info {
   cursor: pointer;
 }
+
 .intro {
   border-right: 2px solid var(--el-color-info-light-8);
   padding-right: 15px;
@@ -108,11 +123,7 @@ const commentlisttwoShow = ref(false)
   margin-right: 10px;
 }
 
-/* 二维评论 */
-.comment-list-two {
-  background-color: var(--el-color-info-light-9);
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
+.my-comment-form {
+  margin-top: 20px;
 }
 </style>
