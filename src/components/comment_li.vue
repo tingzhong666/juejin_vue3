@@ -24,8 +24,8 @@ const updateCommentStatus = function (v) {
   if (commentlisttwoShow.value) refCommentForm.value.focus()
 }
 const blurCommentForm = function () {
-  commentlisttwoShow.value = false
-  refActionComment.value.commentStatusSet(commentlisttwoShow.value)
+  // commentlisttwoShow.value = false
+  // refActionComment.value.commentStatusSet(commentlisttwoShow.value)
 }
 </script>
 
@@ -125,5 +125,6 @@ const blurCommentForm = function () {
 
 .my-comment-form {
   margin-top: 20px;
+  background-color: var(--el-color-info-light-9);
 }
 </style>
