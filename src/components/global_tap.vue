@@ -33,7 +33,7 @@ const search_input = ref('')
             <el-menu-item index="/live">直播</el-menu-item>
             <el-menu-item index="/events">活动</el-menu-item>
             <el-menu-item index="/chanllenge">竞赛</el-menu-item>
-            <el-menu-item index="/">商城</el-menu-item>
+            <el-menu-item index="#">商城</el-menu-item>
             <el-menu-item index="/app">APP</el-menu-item>
             <el-menu-item index="/extension">插件</el-menu-item>
           </el-menu>
