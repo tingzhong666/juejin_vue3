@@ -30,7 +30,7 @@ getData()
     <HeaderTwo v-if="header === 2" @to-return="header = 1"></HeaderTwo>
     <!-- 课程列表 -->
     <div class="list">
-      <MyLy class="li" v-for="item of data" :key="item.booklet_id" :data="item"></MyLy>
+      <MyLy class="li" v-for="item of data" :key="item.booklet_id || item.content.item_id" :data="item"></MyLy>
     </div>
   </el-card>
 </template>
