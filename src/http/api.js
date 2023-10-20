@@ -155,6 +155,36 @@ export const article = {
         cover_img: '',
       },
     ]
+  },
+  async get(){
+    return {
+      content: '官方文档: https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene\n## 安装导入\n#### npm\n```\nnpm i three\n```\n#### 导入\n并非所有功能都在three，还需从子目录导入\n```js\n// three模块\nimport * as three from "three"\n// 一些不在three模块的功能，这里是OrbitControls导入示例\nimport { OrbitControls } from "three/addons/controls/OrbitControls.js";\n```\n#### 静态页面/CDN\nthree是一个esm模块，需要按模块导入方法导入，\n```html\n// 不是所有浏览器都支持ems模块，这是一个esm模块兼容库\n<script defer src="https://unpkg.com/es-module-shims@0.4.6/dist/es-module-shims.js"></script>\n<script type="importmap">\n	{\n		"imports": {\n			"three": "https://unpkg.com/three@<version>/build/three.module.js",\n			"three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"\n		}\n	} </script>\n<script type="module">\n	import * as THREE from "three"; const scene = new THREE.Scene()\n	import { OrbitControls } from "three/addons/controls/OrbitControls.js";\n</script>\n```\n#### npm包查看\n`build`目录有5个js文件，大致分为`three.js`与`three.module.js`，`three.js`中提示已经弃用，现在应该使用`three.module.js`\n## 开始\n#### 环境\n###### 场景\n```js\nconst scene = new three.Scene()\n```\n###### 相机\n```js\nconst camera = new three.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)\n```\n相机有多种，这里是透视相机\n- 视野角度。就是你能看到的场景范围\n- 宽高比。注意不是宽高，是宽高比，宽高比及分辨率在渲染器设置\n- 近视距。相机与目标物体小于此值，此物体将不会渲染\n- 远视距。相机与目标物体大于此值，此物体将不会渲染\n###### 帧渲染器\n```js\nconst renderer = new three.WebGLRenderer()\nrenderer.setSize(window.innerWidth, window.innerHeight)\ndocument.body.append(renderer.domElement)\n```\n`setSize` 函数\n- 宽\n- 高\n- 布尔。默认`true`，宽高既是高度也是分辨率。`false` 仅设置分辨率\n直接设置`canvas`的宽高后，就不用在这里设置宽高了，这里设置分辨率就行。\n>动画都是基于`canvas`标签的，示例中的`renderer.domElement`就是一个`canvas`标签，所以可以直接设置宽高。\n#### 动画编写\n```js\nconst geometry = new three.BoxGeometry(1, 1, 1)\nconst material = new three.MeshBasicMaterial({ color: 0xf1f1aa })\nconst cube = new three.Mesh(geometry, material)\n\nscene.add(cube)\ncamera.position.z = 5\n```\n-  形状。一个几何立体形状\n- 材质。一个内置的普通材质\n- 物体。创建物体对象\n- 添加到场景\n- 移动相机。任何物体在场景的初始位置都是(0, 0, 0)，包括相机，所以移动一下相机，不然看不到这个物体，当然，你也可以不移动相机，而去移动物体，这样\n```js\n// camera.position.z = 5\ncube.position.z = -5\n```\n#### 渲染动画\n```js\nfunction animate() {\n  requestAnimationFrame(animate)\n  cube.rotation.x += 0.1\n  cube.rotation.y += 0.1\n  renderer.render(scene, camera)\n}\nanimate()\n```\n你将看到一个不断旋转的立方体。\n`rotation` 是旋转属性\n`renderer.render()` 是一次性的渲染器\n`requestAnimationFrame(callback)` 是属于`window`的，辅助渲染动画的一次性方法。\n- 因为一次性，所以需要将你的动画函数，传入它的回调参数，且每次都要调用它，以达到不断变化的动画效果。\n- 我认为它和定时器的功能差不多，我进行尝试过\n```js\nfunction animate() {\n  cube.rotation.x += 0.1\n  cube.rotation.y += 0.1\n  renderer.render(scene, camera)\n}\nsetInterval(() => {\n  animate()\n}, 20);\n```\n不过它是js内置的用来专门渲染动画的，使用`requestAnimationFrame()`肯定更好\n\n#### 完整示例\n```js\nimport * as three from "three"\n\nconst scene = new three.Scene()\nconst camera = new three.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)\nconst renderer = new three.WebGLRenderer()\nrenderer.setSize(window.innerWidth, window.innerHeight)\ndocument.body.append(renderer.domElement)\n\nconst geometry = new three.BoxGeometry(1, 1, 1)\nconst material = new three.MeshBasicMaterial({ color: 0xf1f1aa })\nconst cube = new three.Mesh(geometry, material)\nscene.add(cube)\ncamera.position.z = 5\n\nfunction animate() {\n  requestAnimationFrame(animate)\n  cube.rotation.x += 0.1\n  cube.rotation.y += 0.1\n  renderer.render(scene, camera)\n}\nanimate()\n```',
+      title: 'threejs指南',
+      author_id: '23465252345',
+      author_name: '作为听众',
+      created_at: '2020-05-23 10:30:00',
+      read_n: 345,
+      read_time: 300,
+      special_column_id: 'wq234wefw3',
+      special_column_name: 'Nest 通关秘籍',
+      star_n: 53,
+      is_star: false,
+      comment_n: 12,
+      col_n: 13,
+      col_is: false,
+      tags: [
+        {
+          id: '123afwe13re',
+          name: 'Node.js',
+        },
+        {
+          id: 'fsdjh23iufij298',
+          name: 'NestJS',
+        },
+      ],
+      topic_name: '日新计划更新活动',
+      topic_id: 'asdh32ruoi',
+    }
   }
 }
 

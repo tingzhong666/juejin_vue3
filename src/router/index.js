@@ -42,6 +42,10 @@ const router = createRouter({
         },
       ]
     },
+    {
+      path: '/article_details/:id',
+      component: () => import('../views/article_details/article_details.vue')
+    },
   ]
 })
 
