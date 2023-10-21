@@ -33,23 +33,15 @@ const md = new MarkdownIt({
         return hljs.highlight(str, { language: lang }).value
       } catch (__) { }
     }
-
     return '' // 使用额外的默认转义
   }
 })
-
 const fence = md.renderer.rules.fence
-md.renderer.rules.fence  = (tokens, idx, options, env, self) => {
+md.renderer.rules.fence = (tokens, idx, options, env, self) => {
   const token = tokens[idx]
-  const code = token.content.trim()
-  console.log(token)
-  if (token.info) {
-    // 如果<code>标签在<pre>标签内，为<pre>标签添加class
-    return `<pre class="language-${token}"><code class="language-${token}">${code}</code></pre>`
-  }
-  // 否则按照默认规则渲染
-  // return self.renderToken(tokens, idx, options)
-  return fence(tokens, idx, options, env, self)
+  let html = fence(tokens, idx, options, env, self)
+  html = html.replace(/<pre>([\s\S]*?)<\/pre>/, `<pre class="language-${token}">$1</pre>`)
+  return html
 }
 const content = computed(() => md.render(data.value.content || ''))
 </script>
@@ -164,8 +156,12 @@ const content = computed(() => md.render(data.value.content || ''))
   color: var(--el-color-primary);
   background-color: var(--el-color-primary-light-9);
 }
+
 /* 内容markdown */
-.content ul li{
+.content ul li {
   list-style: inside;
+}
+.content:deep(code){
+  background-color: inherit;
 }
 </style>
