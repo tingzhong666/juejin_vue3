@@ -1,6 +1,6 @@
 <script setup>
-import CommentLi from '@/components/comment_Li.vue'
-import { inject } from 'vue';
+import CommentLi from '@/components/comment/comment_Li.vue'
+import { inject } from 'vue'
 const props = defineProps({
   data: {
     type: Object,
@@ -8,8 +8,10 @@ const props = defineProps({
       return {}
     }
   },
+  authorId:{
+    type: String,
+  }
 })
-const boilingPointAuthorId = inject('boilingPointAuthorId')
 </script>
 
 <template>
@@ -20,13 +22,13 @@ const boilingPointAuthorId = inject('boilingPointAuthorId')
         <CommentLi class="comment-list-two-li" :data="item" v-for="item of data.comment_two" :key="item.id">
           <template #intro>
             <!-- 此评论是否为沸点/文章作者 -->
-            {{ boilingPointAuthorId === item.author.id ? '(作者)' : '' }}
+            {{ authorId === item.author.id ? '(作者)' : '' }}
             <!-- 回复谁 -->
             <div class="reply" v-if="item.comment_to_user_id">
               回复
               <el-link href="#">{{ item.comment_to_user_name }}</el-link>
               <!-- 目标评论是否为沸点/文章作者 -->
-              {{ boilingPointAuthorId === item.comment_to_user_id ? '(作者)' : '' }}
+              {{ authorId === item.comment_to_user_id ? '(作者)' : '' }}
             </div>
           </template>
           <template #content-bottom>

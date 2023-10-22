@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 const input = ref('')
 const myInput = ref(null)
-// const focus = ref(false)
 defineExpose({
   focus() {
     myInput.value.focus()
@@ -12,7 +11,7 @@ defineExpose({
 
 <template>
   <div class="form-box">
-    <el-input @blur="$emit('blur')" ref="myInput" :class="{ focus }" class="form-input" v-model="input"
+    <el-input @blur="$emit('blur')" ref="myInput" class="form-input" v-model="input"
       placeholder="输入评论（Enter换行，Ctrl + Enter发送）" />
     <!-- 行为 -->
     <div class="form-action">
