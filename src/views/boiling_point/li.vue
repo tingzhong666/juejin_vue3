@@ -7,7 +7,6 @@ import UserPopover from '@/components/user_popover.vue'
 const props = defineProps({
   options: Object
 })
-provide('boilingPointAuthorId', props.options.author.id)
 
 const comment_status = ref(false)
 </script>
@@ -60,7 +59,7 @@ const comment_status = ref(false)
       <giveLike :star-status="options.star_status" :star-n="options.star_n" hover-mode="two" />
     </div>
     <!-- 评论 -->
-    <comment v-if="comment_status" class="comment" :id="options.id" />
+    <comment v-if="comment_status" class="comment" :id="options.id" :author-id="options.author.id"/>
   </el-card>
 </template>
 

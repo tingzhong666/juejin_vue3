@@ -4,7 +4,7 @@ import GiveLike from '@/components/give_like.vue'
 import Trial from '@/components/Trial.vue'
 import LevelTag from '@/components/level_tag.vue'
 import UserPopover from '@/components/user_popover.vue'
-import CommentForm from '@/components/comment_form.vue'
+import CommentForm from '@/components/comment/comment_form.vue'
 import { ref } from 'vue'
 const props = defineProps({
   data: {
