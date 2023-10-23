@@ -2,6 +2,7 @@
 import * as api from '@/http/api'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import Comment from '@/components/comment/comment.vue'
 
 const route = useRoute()
 
@@ -44,15 +45,23 @@ md.renderer.rules.fence = (tokens, idx, options, env, self) => {
   return html
 }
 const content = computed(() => md.render(data.value.content || ''))
+
+// 评论数据
+const comments = ref([])
+async function getComments() {
+  const res = await api.article.comment.getList({ id: route.params.id })
+  comments.value = res
+}
+getComments()
 </script>
 
 <template>
   <div class="article-details">
     <!-- 主体 -->
+    <!-- 文章 -->
+    <div class="article">
+      <!-- 标题 -->
     <el-card class="main">
-      <!-- 文章 -->
-      <div class="article">
-        <!-- 标题 -->
         <h1 class="title">{{ data.title }}</h1>
         <div class="metadata">
           <span class="author-name metadata-item">{{ data.author_name }}</span>
@@ -77,10 +86,13 @@ const content = computed(() => md.render(data.value.content || ''))
             <span class="label-item">{{ data.topic_name }}</span>
           </span>
         </div>
-      </div>
+      </el-card>
       <!-- 评论 -->
+      <el-card class="comments">
+        <Comment :list="comments" :author-id="data.author_id"></Comment>
+      </el-card>
       <!-- 为你推荐 -->
-    </el-card>
+    </div>
 
     <!-- 右侧边 -->
     <div class="aside-right">
@@ -163,5 +175,10 @@ const content = computed(() => md.render(data.value.content || ''))
 }
 .content:deep(code){
   background-color: inherit;
+}
+
+/* 评论 */
+.comments{
+  margin-top: 20px;
 }
 </style>

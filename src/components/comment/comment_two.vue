@@ -1,6 +1,5 @@
 <script setup>
 import CommentLi from '@/components/comment/comment_Li.vue'
-import { inject } from 'vue'
 const props = defineProps({
   data: {
     type: Object,
