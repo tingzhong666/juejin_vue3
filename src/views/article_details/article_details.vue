@@ -53,6 +53,9 @@ async function getComments() {
   comments.value = res
 }
 getComments()
+
+// 评论抽屉 蒙版
+const commentsMask = ref(false)
 </script>
 
 <template>
@@ -61,7 +64,7 @@ getComments()
     <!-- 文章 -->
     <div class="article">
       <!-- 标题 -->
-    <el-card class="main">
+      <el-card class="main">
         <h1 class="title">{{ data.title }}</h1>
         <div class="metadata">
           <span class="author-name metadata-item">{{ data.author_name }}</span>
@@ -90,6 +93,7 @@ getComments()
       <!-- 评论 -->
       <el-card class="comments">
         <Comment :list="comments" :author-id="data.author_id"></Comment>
+        <div class="more" @click="v => commentsMask = !commentsMask">查看更多评论</div>
       </el-card>
       <!-- 为你推荐 -->
     </div>
@@ -102,6 +106,11 @@ getComments()
       <!-- 相关推荐 -->
       <!-- 官方群 -->
     </div>
+
+    <!-- 评论展开蒙版 -->
+    <el-drawer v-model="commentsMask" title="评论">
+        <Comment :list="comments" :author-id="data.author_id"></Comment>
+    </el-drawer>
   </div>
 </template>
 
@@ -173,12 +182,24 @@ getComments()
 .content ul li {
   list-style: inside;
 }
-.content:deep(code){
+
+.content:deep(code) {
   background-color: inherit;
 }
 
 /* 评论 */
-.comments{
+.comments {
   margin-top: 20px;
+}
+.comments .more{
+  text-align: center;
+  background-color: var(--el-color-info-light-9);
+  cursor: pointer;
+  padding: 20px 0;
+  border-radius: 4px;
+  transition: all .2s linear;
+}
+.comments .more:hover{
+  background-color: var(--el-color-info-light-8);
 }
 </style>
