@@ -1,5 +1,6 @@
 <script setup>
-import global_tap from '@/components/global_tap.vue'
+import GlobalTap from '@/components/global_tap.vue'
+import GlobalSuspension from '@/components/global_suspension.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const global_tap_ref = ref(null)
@@ -22,9 +23,14 @@ onUnmounted(async () => {
 
 <template>
   <div class="app">
-    <global_tap class="global_tap" :class="{ global_tap_scroll: global_tap_scroll }" ref="global_tap_ref"/>
+    <!-- 全局顶部 -->
+    <GlobalTap class="global_tap" :class="{ global_tap_scroll: global_tap_scroll }" ref="global_tap_ref"/>
     
+    <!-- 路由页面 -->
     <RouterView :key="$route.fullPath" class="router-view"/>
+
+    <!-- 全局 功能按钮 -->
+    <GlobalSuspension></GlobalSuspension>
   </div>
 </template>
 
