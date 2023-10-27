@@ -54,6 +54,13 @@ async function getComments() {
 }
 getComments()
 
+// 评论数
+const count = ref(0)
+async function getCount() {
+  count.value = await api.article.comment.getTotal({ id: route.params.id })
+}
+getCount()
+
 // 评论抽屉 蒙版
 const commentsMask = ref(false)
 </script>
@@ -92,7 +99,7 @@ const commentsMask = ref(false)
       </el-card>
       <!-- 评论 -->
       <el-card class="comments">
-        <Comment :list="comments" :author-id="data.author_id"></Comment>
+        <Comment :list="comments" :author-id="data.author_id" :count="count"></Comment>
         <div class="more" @click="v => commentsMask = !commentsMask">查看更多评论</div>
       </el-card>
       <!-- 为你推荐 -->
@@ -109,7 +116,7 @@ const commentsMask = ref(false)
 
     <!-- 评论展开蒙版 -->
     <el-drawer v-model="commentsMask" title="评论">
-        <Comment :list="comments" :author-id="data.author_id"></Comment>
+        <Comment :list="comments" :author-id="data.author_id" :count="count"></Comment>
     </el-drawer>
   </div>
 </template>

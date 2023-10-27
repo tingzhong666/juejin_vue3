@@ -412,7 +412,16 @@ export const article = {
           ]
         },
       ]
-    }
+    },
+    /**
+     * 获取评论总数
+     * @param {object} options 参数对象 
+     * @param {String} options.boilingPointId 沸点id
+     * @returns {any}
+     */
+    async getTotal({ articleId }) {
+      return 324
+    },
   }
 }
 
@@ -598,7 +607,7 @@ export const boilingPoint = {
     /**
      * 获取沸点一维评论列表
      * @param {object} options 参数对象 
-     * @param {String} {options.boilingPointId} 沸点id
+     * @param {String} options.boilingPointId 沸点id
      * @returns {any}
      */
     async getCommentList({ boilingPointId }) {
@@ -820,6 +829,15 @@ export const boilingPoint = {
           ]
         },
       ]
+    },
+    /**
+     * 获取评论总数
+     * @param {object} options 参数对象 
+     * @param {String} options.boilingPointId 沸点id
+     * @returns {any}
+     */
+    async getCommentTotal({ boilingPointId }) {
+      return 324
     },
     /**
      * 获取二维评论列表

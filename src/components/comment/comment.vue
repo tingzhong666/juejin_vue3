@@ -4,11 +4,27 @@ import CommentForm from '@/components/comment/comment_form.vue'
 import { useCounterStore } from '@/stores/counter.js'
 const counter = useCounterStore()
 
-const props = defineProps(['authorId','list'])
+const props = defineProps({
+  authorId:{
+    type: String,
+    default: ''
+  },
+  list:{
+    type: Array,
+    default: []
+  },
+  count:{
+    type: Number,
+    default: 0
+  },
+})
 </script>
 
 <template>
   <div class="my-comment">
+    <!-- 标题 -->
+    <div class="head">评论 {{ count }}</div>
+    <!-- 评论编辑 -->
     <div class="comment-form">
       <!-- 头像 -->
       <img :src="counter.userinfo.avatar" alt="" class="avatar">
@@ -33,7 +49,12 @@ const props = defineProps(['authorId','list'])
 .my-comment-form {
   display: flex;
 }
-
+/* 标题 */
+.head{
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+/* 评论编辑 */
 .comment-form {
   display: flex;
 }
