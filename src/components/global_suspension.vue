@@ -19,9 +19,9 @@
       <template #default>
         <!-- 几个小菜单项 -->
         <div class="menu">
-          <div class="menu-item download">下载APP</div>
-          <div class="menu-item weixin">微信公众号</div>
-          <div class="menu-item xinlang">新浪微博</div>
+          <div class="menu-item download"><el-icon class="iconfont icon-xiazai"></el-icon> 下载APP</div>
+          <div class="menu-item weixin"><el-icon class="iconfont icon-weixin"></el-icon>微信公众号</div>
+          <div class="menu-item xinlang"><el-icon class="iconfont icon-xinlang"></el-icon>新浪微博</div>
         </div>
       </template>
     </el-popover>
@@ -62,5 +62,12 @@
 }
 .menu-item:hover{
   background-color: var(--el-color-info-light-9);
+}
+.weixin .iconfont,
+.xinlang .iconfont{
+  font-size: 20px;
+}
+.menu-item .iconfont{
+  margin-right: 10px;
 }
 </style>
