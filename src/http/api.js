@@ -413,15 +413,6 @@ export const article = {
         },
       ]
     },
-    /**
-     * 获取评论总数
-     * @param {object} options 参数对象 
-     * @param {String} options.boilingPointId 沸点id
-     * @returns {any}
-     */
-    async getTotal({ articleId }) {
-      return 324
-    },
   }
 }
 

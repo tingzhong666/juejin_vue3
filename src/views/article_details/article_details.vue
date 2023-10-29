@@ -1,8 +1,9 @@
 <script setup>
 import * as api from '@/http/api'
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import Comment from '@/components/comment/comment.vue'
+import ActionPanel from './action_panel.vue'
 
 const route = useRoute()
 
@@ -54,22 +55,29 @@ async function getComments() {
 }
 getComments()
 
-// 评论数
-const count = ref(0)
-async function getCount() {
-  count.value = await api.article.comment.getTotal({ id: route.params.id })
-}
-getCount()
-
 // 评论抽屉 蒙版
 const commentsMask = ref(false)
+
+// 行为组件的位置设置
+const ActionPanelLeft = ref(0)
+const refArticle = ref(null)
+const position_set = () => {
+  ActionPanelLeft.value = refArticle.value.offsetLeft - 90
+}
+onMounted(async () => {
+  position_set()
+  window.addEventListener('resize', position_set)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', position_set)
+})
 </script>
 
 <template>
   <div class="article-details">
     <!-- 主体 -->
     <!-- 文章 -->
-    <div class="article">
+    <div class="article" ref="refArticle">
       <!-- 标题 -->
       <el-card class="main">
         <h1 class="title">{{ data.title }}</h1>
@@ -99,7 +107,7 @@ const commentsMask = ref(false)
       </el-card>
       <!-- 评论 -->
       <el-card class="comments">
-        <Comment :list="comments" :author-id="data.author_id" :count="count"></Comment>
+        <Comment :list="comments" :author-id="data.author_id" :count="data.comment_n"></Comment>
         <div class="more" @click="v => commentsMask = !commentsMask">查看更多评论</div>
       </el-card>
       <!-- 为你推荐 -->
@@ -116,8 +124,11 @@ const commentsMask = ref(false)
 
     <!-- 评论展开蒙版 -->
     <el-drawer v-model="commentsMask" title="评论">
-        <Comment :list="comments" :author-id="data.author_id" :count="count"></Comment>
+      <Comment :list="comments" :author-id="data.author_id" :count="data.comment_n"></Comment>
     </el-drawer>
+
+    <!-- 左边行为 -->
+    <ActionPanel class="my-action-panel" :left="ActionPanelLeft" :data="data"></ActionPanel>
   </div>
 </template>
 
@@ -198,7 +209,8 @@ const commentsMask = ref(false)
 .comments {
   margin-top: 20px;
 }
-.comments .more{
+
+.comments .more {
   text-align: center;
   background-color: var(--el-color-info-light-9);
   cursor: pointer;
@@ -206,7 +218,8 @@ const commentsMask = ref(false)
   border-radius: 4px;
   transition: all .2s linear;
 }
-.comments .more:hover{
+
+.comments .more:hover {
   background-color: var(--el-color-info-light-8);
 }
 </style>
