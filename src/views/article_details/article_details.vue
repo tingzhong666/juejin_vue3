@@ -128,7 +128,8 @@ onUnmounted(() => {
     </el-drawer>
 
     <!-- 左边行为 -->
-    <ActionPanel class="my-action-panel" :left="ActionPanelLeft" :data="data"></ActionPanel>
+    <ActionPanel class="my-action-panel" :left="ActionPanelLeft" :data="data" @comment-show="commentsMask = !commentsMask">
+    </ActionPanel>
   </div>
 </template>
 
