@@ -1,7 +1,7 @@
 <script setup>
 import left_aside from './left_aside.vue'
 import mymain from './main/main.vue'
-import right_aside from './right_aside.vue'
+import right_aside from './right_aside/right_aside.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 let category = ref('recommended')
 
