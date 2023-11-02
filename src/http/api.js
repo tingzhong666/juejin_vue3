@@ -4310,6 +4310,43 @@ export const user = {
       "collection_set_article_count": 0,
       "user_dislike_status": 0
     }
+  },
+  // 登录
+  async login({ username, password }) {
+    if (username !== 'tingzhong' || password !== 'tingzhong') return null
+    return {
+      token: 'asfef23rfew',
+      avatar: '/mock/toux.jpg',
+      name: 'tingzhong',
+      ore: 100,
+      level: 3,
+      // 当前等级已有经验
+      exprience: 129.2,
+      // 当前等级升级所需要得经验
+      all_exprience: 150,
+      follow: 23,
+      star: 92,
+      collect: 34,
+      id: 'dsfwoiejowenro23423545234'
+    }
+  },
+  // 验证
+  async check({ token }) {
+    return {
+      token: 'asfef23rfew',
+      avatar: '/mock/toux.jpg',
+      name: 'tingzhong',
+      ore: 100,
+      level: 3,
+      // 当前等级已有经验
+      exprience: 129.2,
+      // 当前等级升级所需要得经验
+      all_exprience: 150,
+      follow: 23,
+      star: 92,
+      collect: 34,
+      id: 'dsfwoiejowenro23423545234'
+    }
   }
 }
 
