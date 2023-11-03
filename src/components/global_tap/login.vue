@@ -10,8 +10,8 @@ const loginPanelToggle = () => {
   loginPanel.value = !loginPanel.value
 }
 // 账号密码
-const username = ref('')
-const password = ref('')
+const username = ref('tingzhong')
+const password = ref('tingzhong')
 // 登录
 const login = async () => {
   const res = await api.user.login({ username: username.value, password: password.value })
@@ -59,7 +59,7 @@ const login = async () => {
         <div class="login-panel">
           <div class="login-method">密码登录</div>
           <el-input class="username-input" v-model="username" placeholder="请输入邮箱/手机号（国际号码加区号）" />
-          <el-input class="password-input" v-model="password" placeholder="请输入密码">
+          <el-input class="password-input" v-model="password" placeholder="请输入密码" type="password">
             <template #suffix>
               <span class="forgot-password">忘记密码</span>
             </template>
