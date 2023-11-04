@@ -4192,7 +4192,12 @@ export const course = {
 
 // 用户
 export const user = {
-  // 获取用户信息
+  /**
+   * 获取用户信息
+   * @param {object} options 参数对象 
+   * @param {String} options.id 用户id
+   * @returns {any}
+   */
   async getUserInfo({ id }) {
     return {
       "user_id": "3491704662919207",
@@ -4311,7 +4316,13 @@ export const user = {
       "user_dislike_status": 0
     }
   },
-  // 登录
+  /**
+   * 登录
+   * @param {object} options 参数对象 
+   * @param {string} options.username 账号
+   * @param {string} options.password 密码
+   * @returns {any}
+   */
   async login({ username, password }) {
     if (username !== 'tingzhong' || password !== 'tingzhong') return null
     return {
@@ -4330,7 +4341,12 @@ export const user = {
       id: 'dsfwoiejowenro23423545234'
     }
   },
-  // 验证
+  /**
+   * 验证
+   * @param {object} options 参数对象 
+   * @param {String} options.token token
+   * @returns {any}
+   */
   async check({ token }) {
     return {
       token: 'asfef23rfew',
@@ -4352,6 +4368,12 @@ export const user = {
 
 // 榜单
 export const leaderboard = {
+  /**
+   * 文章榜
+   * @param {object} options 参数对象 
+   * @param {String} options.typeId 文章类型id
+   * @returns {any}
+   */
   async article({ typeId = 'all' }) {
     return [
       {
@@ -6724,5 +6746,356 @@ export const leaderboard = {
         }
       }
     ]
-  }
+  },
+  /**
+   * 作者榜
+   * @param {object} options 参数对象 
+   * @param {String} options.typeId 文章类型id
+   * @param {String} options.limit 返回几条
+   * @returns {any}
+   */
+  async author({ typeId = 'all', limit = 5 }) {
+    return [
+      {
+        "user_info": {
+          "user_id": "2634854380340008",
+          "user_name": "京东云开发者",
+          "company": "京东科技信息技术有限公司",
+          "job_title": "技术运营",
+          "avatar_large": "https://p3-passport.byteacctimg.com/img/user-avatar/06d48f05b22d366e72d9e10134610cd7~300x300.image",
+          "level": 6,
+          "description": "",
+          "followee_count": 10,
+          "follower_count": 9525,
+          "post_article_count": 912,
+          "digg_article_count": 10,
+          "got_digg_count": 12956,
+          "got_view_count": 1515156,
+          "post_shortmsg_count": 20,
+          "digg_shortmsg_count": 1,
+          "isfollowed": false,
+          "favorable_author": 1,
+          "power": 69496,
+          "study_point": 0,
+          "university": {
+            "university_id": "0",
+            "name": "",
+            "logo": ""
+          },
+          "major": {
+            "major_id": "0",
+            "parent_id": "0",
+            "name": ""
+          },
+          "student_status": 0,
+          "select_event_count": 0,
+          "select_online_course_count": 0,
+          "identity": 0,
+          "is_select_annual": true,
+          "select_annual_rank": 0,
+          "annual_list_type": 0,
+          "extraMap": {},
+          "is_logout": 0,
+          "annual_info": [],
+          "account_amount": 0,
+          "user_growth_info": {
+            "user_id": 2634854380340008,
+            "jpower": 69496,
+            "jscore": 6951.4,
+            "jpower_level": 6,
+            "jscore_level": 6,
+            "jscore_title": "杰出掘友",
+            "author_achievement_list": [
+              1
+            ],
+            "vip_level": 2,
+            "vip_title": "稳步进阶",
+            "jscore_next_level_score": 7000,
+            "jscore_this_level_mini_score": 2000,
+            "vip_score": 120
+          },
+          "is_vip": false,
+          "become_author_days": 402,
+          "collection_set_article_count": 1,
+          "recommend_article_count_daily": 870,
+          "article_collect_count_daily": 21973,
+          "user_priv_info": null
+        },
+        "rank": 1,
+        "hot_value": 1514
+      },
+      {
+        "user_info": {
+          "user_id": "2788017216685118",
+          "user_name": "zxg_神说要有光",
+          "company": "",
+          "job_title": "神光的编程秘籍",
+          "avatar_large": "https://p9-passport.byteacctimg.com/img/user-avatar/4e9e751e2b32fb8afbbf559a296ccbf2~300x300.image",
+          "level": 7,
+          "description": "小册《Nest 通关秘籍》《前端调试通关秘籍》《TypeScript 类型体操通关秘籍》《Babel 插件通关秘籍》作者",
+          "followee_count": 216,
+          "follower_count": 18635,
+          "post_article_count": 303,
+          "digg_article_count": 589,
+          "got_digg_count": 43800,
+          "got_view_count": 2914393,
+          "post_shortmsg_count": 91,
+          "digg_shortmsg_count": 36,
+          "isfollowed": false,
+          "favorable_author": 1,
+          "power": 130849,
+          "study_point": 0,
+          "university": {
+            "university_id": "0",
+            "name": "",
+            "logo": ""
+          },
+          "major": {
+            "major_id": "0",
+            "parent_id": "0",
+            "name": ""
+          },
+          "student_status": 0,
+          "select_event_count": 0,
+          "select_online_course_count": 0,
+          "identity": 0,
+          "is_select_annual": true,
+          "select_annual_rank": 0,
+          "annual_list_type": 0,
+          "extraMap": {},
+          "is_logout": 0,
+          "annual_info": [],
+          "account_amount": 0,
+          "user_growth_info": {
+            "user_id": 2788017216685118,
+            "jpower": 130849,
+            "jscore": 7454.1,
+            "jpower_level": 7,
+            "jscore_level": 7,
+            "jscore_title": "荣誉掘友",
+            "author_achievement_list": [
+              1
+            ],
+            "vip_level": 5,
+            "vip_title": "如鱼得水",
+            "jscore_next_level_score": 25000,
+            "jscore_this_level_mini_score": 7000,
+            "vip_score": 27340
+          },
+          "is_vip": false,
+          "become_author_days": 1719,
+          "collection_set_article_count": 8,
+          "recommend_article_count_daily": 303,
+          "article_collect_count_daily": 46278,
+          "user_priv_info": null
+        },
+        "rank": 1,
+        "hot_value": 1396
+      },
+      {
+        "user_info": {
+          "user_id": "4265760847567016",
+          "user_name": "网易云音乐技术团队",
+          "company": "网易云音乐",
+          "job_title": "",
+          "avatar_large": "https://p3-passport.byteacctimg.com/img/user-avatar/335727a1f67e82416e203e9516f61273~300x300.image",
+          "level": 6,
+          "description": "",
+          "followee_count": 0,
+          "follower_count": 19057,
+          "post_article_count": 187,
+          "digg_article_count": 32,
+          "got_digg_count": 20530,
+          "got_view_count": 1444088,
+          "post_shortmsg_count": 9,
+          "digg_shortmsg_count": 0,
+          "isfollowed": false,
+          "favorable_author": 1,
+          "power": 66120,
+          "study_point": 0,
+          "university": {
+            "university_id": "0",
+            "name": "",
+            "logo": ""
+          },
+          "major": {
+            "major_id": "0",
+            "parent_id": "0",
+            "name": ""
+          },
+          "student_status": 0,
+          "select_event_count": 0,
+          "select_online_course_count": 0,
+          "identity": 0,
+          "is_select_annual": true,
+          "select_annual_rank": 0,
+          "annual_list_type": 1,
+          "extraMap": {},
+          "is_logout": 0,
+          "annual_info": [],
+          "account_amount": 0,
+          "user_growth_info": {
+            "user_id": 4265760847567016,
+            "jpower": 66120,
+            "jscore": 2205.9,
+            "jpower_level": 6,
+            "jscore_level": 6,
+            "jscore_title": "杰出掘友",
+            "author_achievement_list": [
+              1
+            ],
+            "vip_level": 0,
+            "vip_title": "",
+            "jscore_next_level_score": 7000,
+            "jscore_this_level_mini_score": 2000,
+            "vip_score": 0
+          },
+          "is_vip": false,
+          "become_author_days": 1577,
+          "collection_set_article_count": 0,
+          "recommend_article_count_daily": 184,
+          "article_collect_count_daily": 22558,
+          "user_priv_info": null
+        },
+        "rank": 1,
+        "hot_value": 200
+      },
+      {
+        "user_info": {
+          "user_id": "1873223543167902",
+          "user_name": "机器之心",
+          "company": "机器之心",
+          "job_title": "",
+          "avatar_large": "https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2017/8/30/9bd7ac0fa2558bc4e21b29aa85a08b4b~tplv-t2oaga2asx-image.image",
+          "level": 6,
+          "description": "专业的人工智能信息平台（www.jiqizhixin.com）",
+          "followee_count": 2,
+          "follower_count": 29320,
+          "post_article_count": 992,
+          "digg_article_count": 89,
+          "got_digg_count": 8761,
+          "got_view_count": 937798,
+          "post_shortmsg_count": 0,
+          "digg_shortmsg_count": 1,
+          "isfollowed": false,
+          "favorable_author": 1,
+          "power": 47513,
+          "study_point": 0,
+          "university": {
+            "university_id": "0",
+            "name": "",
+            "logo": ""
+          },
+          "major": {
+            "major_id": "0",
+            "parent_id": "0",
+            "name": ""
+          },
+          "student_status": 0,
+          "select_event_count": 0,
+          "select_online_course_count": 0,
+          "identity": 0,
+          "is_select_annual": false,
+          "select_annual_rank": 0,
+          "annual_list_type": 0,
+          "extraMap": {},
+          "is_logout": 0,
+          "annual_info": [],
+          "account_amount": 0,
+          "user_growth_info": {
+            "user_id": 1873223543167902,
+            "jpower": 47513,
+            "jscore": 1804.3,
+            "jpower_level": 6,
+            "jscore_level": 5,
+            "jscore_title": "先锋掘友",
+            "author_achievement_list": [
+              1
+            ],
+            "vip_level": 0,
+            "vip_title": "",
+            "jscore_next_level_score": 2000,
+            "jscore_this_level_mini_score": 500,
+            "vip_score": 0
+          },
+          "is_vip": false,
+          "become_author_days": 2249,
+          "collection_set_article_count": 0,
+          "recommend_article_count_daily": 693,
+          "article_collect_count_daily": 5375,
+          "user_priv_info": null
+        },
+        "rank": 1,
+        "hot_value": 479
+      },
+      {
+        "user_info": {
+          "user_id": "1574156384091320",
+          "user_name": "HelloGitHub",
+          "company": "公众号：HelloGitHub",
+          "job_title": "",
+          "avatar_large": "https://p3-passport.byteacctimg.com/img/user-avatar/5702fc8059e1c07d84297a3f202b9e31~300x300.image",
+          "level": 6,
+          "description": "分享有趣、入门级开源项目的社区：HelloGithub.com",
+          "followee_count": 34,
+          "follower_count": 14116,
+          "post_article_count": 577,
+          "digg_article_count": 269,
+          "got_digg_count": 12887,
+          "got_view_count": 2302707,
+          "post_shortmsg_count": 1092,
+          "digg_shortmsg_count": 221,
+          "isfollowed": false,
+          "favorable_author": 1,
+          "power": 61133,
+          "study_point": 0,
+          "university": {
+            "university_id": "0",
+            "name": "",
+            "logo": ""
+          },
+          "major": {
+            "major_id": "0",
+            "parent_id": "0",
+            "name": ""
+          },
+          "student_status": 0,
+          "select_event_count": 0,
+          "select_online_course_count": 0,
+          "identity": 0,
+          "is_select_annual": true,
+          "select_annual_rank": 0,
+          "annual_list_type": 0,
+          "extraMap": {},
+          "is_logout": 0,
+          "annual_info": [],
+          "account_amount": 0,
+          "user_growth_info": {
+            "user_id": 1574156384091320,
+            "jpower": 61133,
+            "jscore": 2249.9,
+            "jpower_level": 6,
+            "jscore_level": 6,
+            "jscore_title": "杰出掘友",
+            "author_achievement_list": [
+              1
+            ],
+            "vip_level": 0,
+            "vip_title": "",
+            "jscore_next_level_score": 7000,
+            "jscore_this_level_mini_score": 2000,
+            "vip_score": 0
+          },
+          "is_vip": false,
+          "become_author_days": 2657,
+          "collection_set_article_count": 107,
+          "recommend_article_count_daily": 460,
+          "article_collect_count_daily": 11343,
+          "user_priv_info": null
+        },
+        "rank": 2,
+        "hot_value": 320
+      }
+    ]
+  },
 }
