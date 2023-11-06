@@ -3,6 +3,7 @@ import SignIn from './sign_in.vue'
 import ArticleLeaderboard from './article_leaderboard.vue'
 import AuthorLeaderboard from './author_leaderboard.vue'
 import RecommendedTopic from './recommended_topic.vue'
+import Copyright from './copyright.vue'
 </script>
 
 <template>
@@ -15,8 +16,9 @@ import RecommendedTopic from './recommended_topic.vue'
     <!-- 作者榜 -->
     <AuthorLeaderboard class="AuthorLeaderboard"></AuthorLeaderboard>
     <!-- 推荐话题 -->
-    <RecommendedTopic></RecommendedTopic>
+    <RecommendedTopic class="RecommendedTopic"></RecommendedTopic>
     <!-- 版权 -->
+    <Copyright></Copyright>
   </div>
 </template>
 
@@ -24,10 +26,15 @@ import RecommendedTopic from './recommended_topic.vue'
 .signIn {
   margin-bottom: 20px;
 }
-.ArticleLeaderboard{
+
+.ArticleLeaderboard {
   margin-bottom: 20px;
 }
-.AuthorLeaderboard{
+
+.AuthorLeaderboard {
   margin-bottom: 20px;
 }
-</style>
+
+.RecommendedTopic {
+  margin-bottom: 20px;
+}</style>
